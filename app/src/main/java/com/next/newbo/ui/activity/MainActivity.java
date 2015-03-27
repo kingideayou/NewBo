@@ -1,12 +1,19 @@
-package com.next.newbo;
+package com.next.newbo.ui.activity;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.next.newbo.R;
 
-public class MainActivity extends ActionBarActivity {
+import butterknife.InjectView;
+
+
+public class MainActivity extends BaseActivity {
+
+    @InjectView(R.id.rvFeed)
+    RecyclerView rvFeed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
