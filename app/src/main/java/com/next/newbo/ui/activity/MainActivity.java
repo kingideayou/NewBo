@@ -1,12 +1,15 @@
 package com.next.newbo.ui.activity;
 
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.next.newbo.R;
+import com.next.newbo.ui.adapter.FeedAdapter;
 
+import butterknife.ButterKnife;
 import butterknife.InjectView;
 
 
@@ -19,6 +22,16 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.inject(this);
+        //提高性能
+        rvFeed.setHasFixedSize(true);
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        rvFeed.setLayoutManager(layoutManager);
+
+        FeedAdapter feedAdapter = new FeedAdapter(new String[]{"11111","22222","33333",
+                "44444","55555","66666"});
+        rvFeed.setAdapter(feedAdapter);
     }
 
 

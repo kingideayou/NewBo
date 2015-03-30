@@ -4,4 +4,9 @@
     <color name="style_color_primary">#03a9f4</color>
     <color name="style_color_primary_dark">#01579b</color>
 
+    <color name="black">#000000</color>
+    <color name="transparent_cover">#35000000</color>
+
+    <color name="text_like_counter">#01579b</color>
+
 </resources>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_view"
+    android:layout_gravity="center"
+    android:layout_margin="8dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/card_top_margin"
+        android:layout_marginBottom="@dimen/card_bottom_margin"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.next.newbo.ui.view.CircleImageView
+                android:src="@mipmap/ic_launcher"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/text_image_margin"
+                android:layout_gravity="center"
+                android:textSize="@dimen/text_big_size"
+                android:text="NeXT___"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:textSize="@dimen/text_normal_size"
+            android:text="没有一点点防备，也没有一丝顾虑，你就这样出现，在我的世界里..."
+            />
+        
+        <GridLayout
+            android:id="@+id/grid_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <com.next.newbo.ui.view.MultiPicturesChildImageView
+                style="@style/listViewMultiImageView" />
+
+            <com.next.newbo.ui.view.MultiPicturesChildImageView
+                style="@style/listViewMultiImageView" />
+
+            <com.next.newbo.ui.view.MultiPicturesChildImageView
+                style="@style/listViewMultiImageView" />
+
+            <com.next.newbo.ui.view.MultiPicturesChildImageView
+                style="@style/listViewMultiImageView" />
+
+            <com.next.newbo.ui.view.MultiPicturesChildImageView
+                style="@style/listViewMultiImageView" />
+
+            <com.next.newbo.ui.view.MultiPicturesChildImageView
+                style="@style/listViewMultiImageView" />
+
+            <com.next.newbo.ui.view.MultiPicturesChildImageView
+                style="@style/listViewMultiImageView" />
+
+            <com.next.newbo.ui.view.MultiPicturesChildImageView
+                style="@style/listViewMultiImageView" />
+
+            <com.next.newbo.ui.view.MultiPicturesChildImageView
+                style="@style/listViewMultiImageView" />
+
+        </GridLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp">
+
+            <ImageButton
+                android:id="@+id/button_comment"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@android:color/transparent"
+                android:src="@mipmap/ic_comment_outline_grey"/>
+
+            <ImageButton
+                android:id="@+id/button_repost"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@android:color/transparent"
+                android:src="@mipmap/ic_comment_outline_grey"/>
+
+            <ImageButton
+                android:id="@+id/button_more"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@android:color/transparent"
+                android:src="@mipmap/ic_more_grey"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical|right">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_heart_small_blue"/>
+
+                <TextSwitcher
+                    android:id="@+id/ts_likes_counter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="123 likes"
+                        android:textColor="@color/text_like_counter"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_like_counter" />
+                </TextSwitcher>
+
+             </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>
