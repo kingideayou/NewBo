@@ -1,11 +1,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/style_color_primary</item>
         <item name="android:colorPrimaryDark"
             tools:ignore="NewApi">@color/style_color_primary_dark</item>
+        <!-- <item name="android:windowBackground">@color/background_floating_material_light</item> -->
     </style>
 
     <style name="listViewMultiImageView">
