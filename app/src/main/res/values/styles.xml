@@ -14,4 +14,10 @@
         <item name="android:layout_margin">2.5dp</item>
     </style>
 
+    <style name="ContextMenuButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/btn_context_menu</item>
+    </style>
+
 </resources>

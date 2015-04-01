@@ -15,9 +15,11 @@ import com.next.newbo.ui.adapter.FeedAdapter;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import de.keyboardsurfer.android.widget.crouton.Crouton;
+import de.keyboardsurfer.android.widget.crouton.Style;
 
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements FeedAdapter.OnFeedItemClickListener {
 
     private static final int ANIM_DURATION_TOOLBAR = 300;
 
@@ -55,6 +57,7 @@ public class MainActivity extends BaseActivity {
 
         feedAdapter = new FeedAdapter(getApplicationContext(), new String[]{"1","2","3",
                 "4","5","6","7","8","9"});
+        feedAdapter.setOnFeedClickListener(this);
         rvFeed.setAdapter(feedAdapter);
         rvFeed.setVisibility(View.GONE);
     }
@@ -85,7 +88,7 @@ public class MainActivity extends BaseActivity {
         getIvLogo().animate()
                 .translationY(0)
                 .setDuration(ANIM_DURATION_TOOLBAR)
-                .setStartDelay(600)
+                .setStartDelay(500)
                 .setListener(new AnimatorListenerAdapter() {
                     @Override
                     public void onAnimationEnd(Animator animator) {
@@ -112,5 +115,20 @@ public class MainActivity extends BaseActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onCommentsClick(View v, int position) {
+        Crouton.showText(this, "点击第" + position + "条评论", Style.INFO);
+    }
+
+    @Override
+    public void onMoreClick(View v, int position) {
+        Crouton.showText(this, "点击第" + position + "条更多", Style.INFO);
+    }
+
+    @Override
+    public void onTranspondClick(View v, int position) {
+        Crouton.showText(this, "点击第" + position + "条转发", Style.INFO);
     }
 }

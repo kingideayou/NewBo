@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <Button
+        android:id="@+id/btn_1"
+        style="@style/ContextMenuButton"
+        android:text="button 1"/>
+
+</merge>

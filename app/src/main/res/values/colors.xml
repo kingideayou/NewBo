@@ -10,4 +10,7 @@
 
     <color name="text_like_counter">#01579b</color>
 
+    <color name="btn_context_menu_normal">#ffffff</color>
+    <color name="btn_context_menu_pressed">#40000000</color>
+
 </resources>
