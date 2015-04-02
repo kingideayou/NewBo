@@ -12,6 +12,8 @@ import android.view.View;
 import com.next.newbo.R;
 import com.next.newbo.Utils;
 import com.next.newbo.ui.adapter.FeedAdapter;
+import com.next.newbo.ui.view.FeedContextMenu;
+import com.next.newbo.ui.view.FeedContextMenuManager;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -19,7 +21,7 @@ import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
 
 
-public class MainActivity extends BaseActivity implements FeedAdapter.OnFeedItemClickListener {
+public class MainActivity extends BaseActivity implements FeedAdapter.OnFeedItemClickListener, FeedContextMenu.OnFeedContextMenuItemClickListener {
 
     private static final int ANIM_DURATION_TOOLBAR = 300;
 
@@ -28,6 +30,8 @@ public class MainActivity extends BaseActivity implements FeedAdapter.OnFeedItem
 
     private FeedAdapter feedAdapter;
     private boolean pendingIntroAnimation;
+
+    private boolean isFeedMenuShow = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +63,38 @@ public class MainActivity extends BaseActivity implements FeedAdapter.OnFeedItem
                 "4","5","6","7","8","9"});
         feedAdapter.setOnFeedClickListener(this);
         rvFeed.setAdapter(feedAdapter);
+        /*
+        rvFeed.addOnItemTouchListener(
+                new RecyclerItemClickListener(getApplicationContext(),
+                        new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override public void onItemClick(View view, int position) {
+                        // do whatever
+                        Toast.makeText(getApplicationContext(), "点击条目" + position,
+                                Toast.LENGTH_SHORT).show();
+                    }
+                })
+        );
+        */
+        rvFeed.setOnScrollListener(new RecyclerView.OnScrollListener(){
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                FeedContextMenuManager.getInstance().onScrolled(recyclerView, dx, dy);
+            }
+        });
         rvFeed.setVisibility(View.GONE);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean("isFeedMenuShow", isFeedMenuShow);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        isFeedMenuShow = savedInstanceState.getBoolean("isFeedMenuShow");
     }
 
     @Override
@@ -113,22 +148,50 @@ public class MainActivity extends BaseActivity implements FeedAdapter.OnFeedItem
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
     @Override
     public void onCommentsClick(View v, int position) {
         Crouton.showText(this, "点击第" + position + "条评论", Style.INFO);
+        dismissFeedMenu();
     }
 
     @Override
     public void onMoreClick(View v, int position) {
+        isFeedMenuShow = true;
+        FeedContextMenuManager.getInstance().toggleContextMenuFromView(v, position, this);
         Crouton.showText(this, "点击第" + position + "条更多", Style.INFO);
     }
 
     @Override
     public void onTranspondClick(View v, int position) {
         Crouton.showText(this, "点击第" + position + "条转发", Style.INFO);
+        dismissFeedMenu();
+    }
+
+    @Override
+    public void onContentClick(View v, int position) {
+        Crouton.showText(this, "点击第" + position + "条文本", Style.INFO);
+        dismissFeedMenu();
+    }
+
+    @Override
+    public void onButon1Click(int feedItem) {
+        Crouton.showText(this, "点击第" + feedItem + "条的 Button 1", Style.INFO);
+        dismissFeedMenu();
+    }
+
+    @Override
+    public void onButon2Click(int feedItem) {
+        Crouton.showText(this, "点击第" + feedItem + "条的 Button 2", Style.INFO);
+        dismissFeedMenu();
+    }
+
+    private void dismissFeedMenu() {
+        if(isFeedMenuShow){
+            FeedContextMenuManager.getInstance().hideContextMenu();
+            isFeedMenuShow = false;
+        }
     }
 }

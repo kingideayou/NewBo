@@ -6,4 +6,9 @@
         style="@style/ContextMenuButton"
         android:text="button 1"/>
 
+    <Button
+        android:id="@+id/btn_2"
+        style="@style/ContextMenuButton"
+        android:text="button 2"/>
+
 </merge>
