@@ -79,6 +79,7 @@ public class MainActivity extends BaseActivity implements FeedAdapter.OnFeedItem
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
+                isFeedMenuShow = false;
                 FeedContextMenuManager.getInstance().onScrolled(recyclerView, dx, dy);
             }
         });
