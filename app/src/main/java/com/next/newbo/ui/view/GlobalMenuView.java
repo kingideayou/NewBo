@@ -40,7 +40,6 @@ public class GlobalMenuView extends ListView implements View.OnClickListener {
     }
 
     private void setupAdapter() {
-        //TODO 添加 Adapter
         globalMenuAdapter = new GlobalMenuAdapter(getContext());
         setAdapter(globalMenuAdapter);
     }

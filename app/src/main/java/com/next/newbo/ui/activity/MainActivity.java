@@ -2,12 +2,14 @@ package com.next.newbo.ui.activity;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.next.newbo.R;
 import com.next.newbo.Utils;
@@ -154,15 +156,22 @@ public class MainActivity extends BaseActivity implements FeedAdapter.OnFeedItem
 
     @Override
     public void onCommentsClick(View v, int position) {
-        Crouton.showText(this, "点击第" + position + "条评论", Style.INFO);
         dismissFeedMenu();
+        Toast.makeText(getApplicationContext(), "点击评论了", Toast.LENGTH_SHORT).show();
+        Intent commentIntent = new Intent(MainActivity.this, WeiboDetailActivity.class);
+        startActivity(commentIntent);
     }
 
     @Override
     public void onMoreClick(View v, int position) {
-        isFeedMenuShow = true;
-        FeedContextMenuManager.getInstance().toggleContextMenuFromView(v, position, this);
-        Crouton.showText(this, "点击第" + position + "条更多", Style.INFO);
+        if(isFeedMenuShow){
+            dismissFeedMenu();
+            isFeedMenuShow = false;
+        } else {
+            isFeedMenuShow = true;
+            FeedContextMenuManager.getInstance().toggleContextMenuFromView(v, position, this);
+            Crouton.showText(this, "点击第" + position + "条更多", Style.INFO);
+        }
     }
 
     @Override

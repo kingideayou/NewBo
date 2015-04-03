@@ -44,7 +44,6 @@ public class BaseActivity extends ActionBarActivity implements GlobalMenuView.On
     }
 
     protected void setupDrawer() {
-        //TODO 添加 DrawerLayout 相关内容
         GlobalMenuView menuView = new GlobalMenuView(this);
         menuView.setOnItemClickListener(this);
         menuView.setOnHeaderClickListener(this);

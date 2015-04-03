@@ -10,5 +10,9 @@
         <item quantity="one">%d like</item>
         <item quantity="other">%d likes</item>
     </plurals>
+    <string name="title_activity_weibo_detail">WeiboDetailActivity</string>
+
+    <string name="button_send">SEND</string>
+    <string name="button_done">✓</string>
 
 </resources>
