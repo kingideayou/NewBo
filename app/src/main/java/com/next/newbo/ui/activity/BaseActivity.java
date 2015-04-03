@@ -1,5 +1,6 @@
 package com.next.newbo.ui.activity;
 
+import android.os.Handler;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
@@ -13,6 +14,8 @@ import com.next.newbo.R;
 import com.next.newbo.Utils;
 import com.next.newbo.ui.utils.DrawerLayoutInstaller;
 import com.next.newbo.ui.view.GlobalMenuView;
+
+import java.util.logging.Logger;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -76,9 +79,19 @@ public class BaseActivity extends ActionBarActivity implements GlobalMenuView.On
     }
 
     @Override
-    public void onGloableMenuHeaderClick(View v) {
+    public void onGlobalMenuHeaderClick(final View v) {
         drawerLayout.closeDrawer(Gravity.START);
-        Crouton.makeText(this, "点击用户", Style.CONFIRM).show();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                com.orhanobut.logger.Logger.i("Radius");
+                int[] startingLocation = new int[2];
+                v.getLocationOnScreen(startingLocation);
+                startingLocation[0] += v.getWidth() / 2;
+                UserProfileActivity.startUserProfileFromLocation(startingLocation, BaseActivity.this);
+                overridePendingTransition(0, 0);
+            }
+        }, 200);
     }
 
     @Override

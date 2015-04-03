@@ -58,12 +58,12 @@ public class GlobalMenuView extends ListView implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         if (onHeaderClickListener != null){
-            onHeaderClickListener.onGloableMenuHeaderClick(view);
+            onHeaderClickListener.onGlobalMenuHeaderClick(view);
         }
     }
 
     public interface  OnHeaderClickListener {
-        public void onGloableMenuHeaderClick(View v);
+        public void onGlobalMenuHeaderClick(View v);
     }
 
     public void setOnHeaderClickListener(OnHeaderClickListener listener) {

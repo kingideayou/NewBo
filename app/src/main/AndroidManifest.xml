@@ -21,6 +21,10 @@
             android:name=".ui.activity.WeiboDetailActivity"
             android:label="@string/title_activity_weibo_detail" >
         </activity>
+        <activity
+            android:name=".ui.activity.UserProfileActivity"
+            android:label="@string/title_activity_user_profile" >
+        </activity>
     </application>
 
 </manifest>
