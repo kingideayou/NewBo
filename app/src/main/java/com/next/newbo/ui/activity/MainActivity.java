@@ -157,11 +157,12 @@ public class MainActivity extends BaseActivity implements FeedAdapter.OnFeedItem
     @Override
     public void onCommentsClick(View v, int position) {
         dismissFeedMenu();
-        Toast.makeText(getApplicationContext(), "点击评论了", Toast.LENGTH_SHORT).show();
-        /*
         Intent commentIntent = new Intent(MainActivity.this, WeiboDetailActivity.class);
+        int[] startingLocation = new int[2];
+        v.getLocationOnScreen(startingLocation);
+        commentIntent.putExtra(WeiboDetailActivity.ARG_DRAWING_START_LOCATION, startingLocation[1]);
         startActivity(commentIntent);
-        */
+        overridePendingTransition(0, 0);
     }
 
     @Override
