@@ -74,10 +74,10 @@ public class RevealBackgroundView extends View {
         startLocationY = tapLocationOnScreen[1];
         revealAnimator = ObjectAnimator.ofInt(this, "currentRadius", 0, getWidth() + getHeight()).
                 setDuration(FILL_TIME);
+        revealAnimator.setInterpolator(INTERPOLATOR);
         revealAnimator.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
-                super.onAnimationEnd(animation);
                 changeState(STATE_FINISHED);
             }
         });
@@ -91,7 +91,6 @@ public class RevealBackgroundView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
         if(state == STATE_FINISHED) {
             canvas.drawRect(0, 0, getWidth(), getHeight(), fillPaint);
         } else {
@@ -111,6 +110,7 @@ public class RevealBackgroundView extends View {
 
     public void setCurrentRadius(int currentRadius) {
         this.currentRadius = currentRadius;
+        invalidate();
     }
 
     public void setOnStateChangeListener(OnStateChangeListener onStateChangeListener) {

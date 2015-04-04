@@ -84,7 +84,6 @@ public class BaseActivity extends ActionBarActivity implements GlobalMenuView.On
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                com.orhanobut.logger.Logger.i("Radius");
                 int[] startingLocation = new int[2];
                 v.getLocationOnScreen(startingLocation);
                 startingLocation[0] += v.getWidth() / 2;
