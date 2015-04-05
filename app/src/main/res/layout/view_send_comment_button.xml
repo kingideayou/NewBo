@@ -7,8 +7,9 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:textColor="@color/white"
+        android:text="@string/button_send"
         android:textSize="12sp"
-        android:text="@string/button_send"/>
+        />
 
     <TextView
         android:id="@+id/tv_done"
@@ -16,6 +17,8 @@
         android:layout_height="match_parent"
         android:textColor="@color/white"
         android:textSize="12sp"
+        android:gravity="center"
+        android:layout_gravity="center"
         android:text="@string/button_done"/>
 
 </merge>

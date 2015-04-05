@@ -13,7 +13,7 @@
     <string name="title_activity_weibo_detail">WeiboDetailActivity</string>
 
     <string name="button_send">SEND</string>
-    <string name="button_done">✓</string>
+    <string name="button_done">√</string>
     <string name="title_activity_user_profile">UserProfileActivity</string>
 
 </resources>

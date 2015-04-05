@@ -21,6 +21,7 @@ import android.widget.LinearLayout;
 
 import com.next.newbo.R;
 import com.next.newbo.Utils;
+import com.next.newbo.ui.adapter.CommentsAdapter;
 import com.next.newbo.ui.adapter.FeedAdapter;
 import com.next.newbo.ui.view.SendCommentButton;
 
@@ -41,7 +42,7 @@ public class WeiboDetailActivity extends BaseActivity implements SendCommentButt
     @InjectView(R.id.ll_add_comment)
     LinearLayout llAddComment;
 
-    private FeedAdapter feedAdapter;
+    private CommentsAdapter commentsAdapter;
     private int drawingStartLocation;
 
     @Override
@@ -85,7 +86,7 @@ public class WeiboDetailActivity extends BaseActivity implements SendCommentButt
     }
 
     private void animateContent() {
-        feedAdapter.updateItems(false);
+        commentsAdapter.updateItems();
         llAddComment.animate().translationY(0)
                 .setInterpolator(new DecelerateInterpolator())
                 .setDuration(200)
@@ -97,8 +98,8 @@ public class WeiboDetailActivity extends BaseActivity implements SendCommentButt
         rvComment.setLayoutManager(linearLayoutManager);
         rvComment.setHasFixedSize(true);
 
-        feedAdapter = new FeedAdapter(this, new String[]{"", "", "", "", "", ""});
-        rvComment.setAdapter(feedAdapter);
+        commentsAdapter = new CommentsAdapter(this);
+        rvComment.setAdapter(commentsAdapter);
         rvComment.setOverScrollMode(View.OVER_SCROLL_NEVER);
         rvComment.setOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
@@ -153,7 +154,13 @@ public class WeiboDetailActivity extends BaseActivity implements SendCommentButt
     @Override
     public void onSendClickListener(View v) {
         if (validateComment()){
+            commentsAdapter.addItem();
+            commentsAdapter.setAnimationsLocked(false);
+            commentsAdapter.setDelayEnterAnimation(false);
+            rvComment.smoothScrollBy(0, rvComment.getChildAt(0).getHeight() * commentsAdapter.getItemCount());
 
+            etComment.setText(null);
+            btnSendComment.setCurrentState(SendCommentButton.STATE_DONE);
         }
     }
 
