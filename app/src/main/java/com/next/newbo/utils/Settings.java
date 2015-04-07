@@ -1,4 +1,4 @@
-package com.next.newbo.ui.utils;
+package com.next.newbo.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;

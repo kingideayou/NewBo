@@ -14,7 +14,7 @@ import com.next.newbo.R;
 import com.next.newbo.Utils;
 import com.next.newbo.support.ShakeDetector;
 import com.next.newbo.ui.adapter.FeedAdapter;
-import com.next.newbo.ui.utils.Settings;
+import com.next.newbo.utils.Settings;
 import com.next.newbo.ui.view.FeedContextMenu;
 import com.next.newbo.ui.view.FeedContextMenuManager;
 
@@ -44,6 +44,8 @@ public class MainActivity extends BaseActivity implements FeedAdapter.OnFeedItem
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
         setupFeed();
+
+
 
         settings = Settings.getInstance(this);
         shakeDetector = ShakeDetector.getInstance(this);

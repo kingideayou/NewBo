@@ -1,4 +1,4 @@
-package com.next.newbo.ui.utils;
+package com.next.newbo.utils;
 
 import com.next.newbo.BuildConfig;
 import com.orhanobut.logger.Logger;
