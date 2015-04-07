@@ -7,6 +7,25 @@
         <!-- <item name="android:windowBackground">@color/background_floating_material_light</item> -->
     </style>
 
+    <style name="ThemeToolbar" parent="AppTheme">
+        <item name="colorControlNormal">@color/white</item>
+        <item name="android:textColorSecondary">@color/white</item>
+    </style>
+
+    <!--
+        修改 ToolBar 菜单图片
+        http://stackoverflow.com/questions/29038861/how-to-change-toolbar-navigation-and-overflow-menu-icons-appcompat-v7
+    -->
+    <!--
+    <style name="AppTheme.Base" parent="Theme.AppCompat.Light">
+        <item name="actionOverflowButtonStyle">@style/OverFlow</item>
+    </style>
+
+    <style name="OverFlow" parent="Widget.AppCompat.ActionButton.Overflow">
+        <item name="android:src">@mipmap/ic_launcher</item>
+    </style>
+    -->
+
     <style name="listViewMultiImageView">
         <item name="android:scaleType">centerCrop</item>
         <item name="android:layout_height">90dp</item>

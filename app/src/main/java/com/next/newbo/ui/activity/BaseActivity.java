@@ -15,8 +15,6 @@ import com.next.newbo.Utils;
 import com.next.newbo.ui.utils.DrawerLayoutInstaller;
 import com.next.newbo.ui.view.GlobalMenuView;
 
-import java.util.logging.Logger;
-
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.Optional;
