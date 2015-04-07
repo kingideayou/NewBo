@@ -9,11 +9,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import com.next.newbo.R;
 import com.next.newbo.Utils;
+import com.next.newbo.support.ShakeDetector;
 import com.next.newbo.ui.adapter.FeedAdapter;
+import com.next.newbo.ui.utils.AppLogger;
 import com.next.newbo.ui.view.FeedContextMenu;
 import com.next.newbo.ui.view.FeedContextMenuManager;
 
@@ -23,7 +24,7 @@ import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
 
 
-public class MainActivity extends BaseActivity implements FeedAdapter.OnFeedItemClickListener, FeedContextMenu.OnFeedContextMenuItemClickListener {
+public class MainActivity extends BaseActivity implements FeedAdapter.OnFeedItemClickListener, FeedContextMenu.OnFeedContextMenuItemClickListener, ShakeDetector.ShakeListener {
 
     private static final int ANIM_DURATION_TOOLBAR = 300;
 
@@ -31,6 +32,7 @@ public class MainActivity extends BaseActivity implements FeedAdapter.OnFeedItem
     RecyclerView rvFeed;
 
     private FeedAdapter feedAdapter;
+    private ShakeDetector shakeDetector;
     private boolean pendingIntroAnimation;
 
     private boolean isFeedMenuShow = false;
@@ -42,11 +44,25 @@ public class MainActivity extends BaseActivity implements FeedAdapter.OnFeedItem
         ButterKnife.inject(this);
         setupFeed();
 
+        shakeDetector = ShakeDetector.getInstance(this);
+
         if(savedInstanceState == null){
             pendingIntroAnimation = true;
         } else {
             feedAdapter.updateItems(false);
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        shakeDetector.addListeners(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        shakeDetector.removeListener(this);
     }
 
     public void setupFeed(){
@@ -206,5 +222,11 @@ public class MainActivity extends BaseActivity implements FeedAdapter.OnFeedItem
             FeedContextMenuManager.getInstance().hideContextMenu();
             isFeedMenuShow = false;
         }
+    }
+
+    @Override
+    public void onShake() {
+        //TODO 检测到晃动手机
+        AppLogger.i("晃动手机了亲！！！");
     }
 }

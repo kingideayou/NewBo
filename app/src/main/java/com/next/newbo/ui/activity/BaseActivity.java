@@ -1,5 +1,6 @@
 package com.next.newbo.ui.activity;
 
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
@@ -12,6 +13,7 @@ import android.widget.ImageView;
 
 import com.next.newbo.R;
 import com.next.newbo.Utils;
+import com.next.newbo.support.ShakeDetector;
 import com.next.newbo.ui.utils.DrawerLayoutInstaller;
 import com.next.newbo.ui.view.GlobalMenuView;
 
@@ -34,6 +36,7 @@ public class BaseActivity extends ActionBarActivity implements GlobalMenuView.On
     @InjectView(R.id.ivLogo)
     ImageView ivLogo;
 
+    private ShakeDetector shakeDetector;
     private DrawerLayout drawerLayout;
 
     @Override
@@ -42,6 +45,16 @@ public class BaseActivity extends ActionBarActivity implements GlobalMenuView.On
         ButterKnife.inject(this);
         setupToolbar();
         setupDrawer();
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 
     protected void setupDrawer() {
