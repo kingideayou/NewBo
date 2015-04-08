@@ -58,4 +58,7 @@ public class Settings {
         return mPrefs.getString(key, defValue);
     }
 
+    public int getInt(String key, int value) {
+        return mPrefs.getInt(key, value);
+    }
 }

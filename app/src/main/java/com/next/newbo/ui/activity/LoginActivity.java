@@ -19,7 +19,7 @@ import com.next.newbo.R;
 import com.next.newbo.api.PrivateKey;
 import com.next.newbo.cache.LoginApiCache;
 import com.next.newbo.utils.AppLogger;
-import com.next.newbo.utils.DateUtils;
+import com.next.newbo.utils.TimeUtils;
 
 import butterknife.InjectView;
 
@@ -129,7 +129,7 @@ public class LoginActivity extends BaseActivity {
                 BaseApi.setAccessToken(loginApiCache.getAccessToken());
 
                 String msg = String.format(getResources().getString(R.string.expires_in),
-                        DateUtils.expireTimeInDays(loginApiCache.getExpireDate()));
+                        TimeUtils.expireTimeInDays(loginApiCache.getExpireDate()));
                 new AlertDialogWrapper.Builder(LoginActivity.this)
                         .setTitle(R.string.notify_title)
                         .setMessage(msg)
