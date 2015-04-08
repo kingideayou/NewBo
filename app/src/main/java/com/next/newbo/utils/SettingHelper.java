@@ -55,4 +55,10 @@ public class SettingHelper {
     public static void setEditor(Context paramContext, String paramString1, String paramString2) {
         getEditorObject(paramContext).putString(paramString1, paramString2).commit();
     }
+
+    public static void setEditor(Context paramContext, String[] paramString1, String[] paramString2) {
+        for (int i=0; i < paramString1.length; i++){
+            getEditorObject(paramContext).putString(paramString1[i], paramString2[i]).commit();
+        }
+    }
 }

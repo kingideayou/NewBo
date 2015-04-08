@@ -5,7 +5,7 @@ import com.next.newbo.BaseApi;
 /**
  * Created by NeXT on 15-4-8.
  */
-public class PriveteKey extends BaseApi{
+public class PrivateKey extends BaseApi{
 
     private static final String APP_ID = "211160679";
     private static final String APP_KEY_HASH = "1e6e33db08f9192306c4afa0a61ad56c";

@@ -15,5 +15,15 @@
     <string name="button_send">SEND</string>
     <string name="button_done">√</string>
     <string name="title_activity_user_profile">UserProfileActivity</string>
+    <string name="title_activity_login">LoginActivity</string>
+
+    <string name="OK">确定</string>
+    <string name="CANCEL">取消</string>
+
+    <!-- 提示信息 -->
+    <string name="message_login_failure">登录失败</string>
+    <string name="please_wait">请稍后……</string>
+    <string name="expires_in">本次授权将在 %d 天后失效</string>
+    <string name="notify_title">提示</string>
 
 </resources>

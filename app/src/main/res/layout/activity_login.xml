@@ -1,0 +1,17 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.next.newbo.ui.activity.LoginActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/view_main_toolbar"/>
+
+    <WebView
+        android:id="@+id/login_web"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"/>
+
+</RelativeLayout>
