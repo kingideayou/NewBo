@@ -9,7 +9,13 @@ public class AccountApi extends BaseApi {
 
     public static String getUid() {
         //TODO BaseApi 从网络获取用户 UID
-        return "";
+        try {
+
+            return "";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "";
+        }
     }
 
 }

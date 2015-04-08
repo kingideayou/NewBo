@@ -3,7 +3,7 @@ package com.next.newbo;
 /**
  * Created by NeXT on 15-4-7.
  */
-public class BaseApi {
+public abstract class BaseApi {
 
     private static String mAccessToken;
 
