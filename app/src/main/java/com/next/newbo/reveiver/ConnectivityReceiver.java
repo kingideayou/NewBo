@@ -21,7 +21,7 @@ public class ConnectivityReceiver extends BroadcastReceiver {
             ServiceUtils.startServices(context);
         } else {
             //TODO 关闭消息提醒的 Service
-
+            ServiceUtils.stopServices(context);
         }
     }
 }

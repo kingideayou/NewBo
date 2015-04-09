@@ -21,21 +21,9 @@ public class UnreadModel {
 
     @Override
     public String toString() {
-        return "UnreadModel{" +
-                "status=" + status +
-                ", follower=" + follower +
-                ", cmt=" + cmt +
-                ", dm=" + dm +
-                ", mention_status=" + mention_status +
-                ", mention_cmt=" + mention_cmt +
-                ", group=" + group +
-                ", private_group=" + private_group +
-                ", notice=" + notice +
-                ", invite=" + invite +
-                ", badge=" + badge +
-                ", photo=" + photo +
-                ", msgbox=" + msgbox +
-                '}';
+        return String.valueOf(follower) + cmt + dm + mention_status
+                + mention_cmt + group + private_group + notice
+                + invite + badge + photo + msgbox;
     }
 
 }

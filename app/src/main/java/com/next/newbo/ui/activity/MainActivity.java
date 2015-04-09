@@ -28,6 +28,8 @@ public class MainActivity extends BaseActivity implements FeedAdapter.OnFeedItem
 
     private static final int ANIM_DURATION_TOOLBAR = 300;
 
+    public static final int HOME = 0, COMMENT = 1, FAV = 2, DM = 3, MENTION = 4, SEARCH = 5;
+
     @InjectView(R.id.rvFeed)
     RecyclerView rvFeed;
 

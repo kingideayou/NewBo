@@ -26,5 +26,12 @@
     <string name="expires_in">本次授权将在 %d 天后失效</string>
     <string name="notify_title">提示</string>
     <string name="title_activity_control">ControlActivity</string>
+    <string name="click_to_view">点击查看</string>
+    <string name="new_dm">%d 条新私信</string>
+    <string name="new_cmt">%d 条新评论</string>
+    <string name="new_at_detail_weibo">%d 条新微博</string>
+    <string name="new_at_detail_and"><![CDATA[&#160;和&#160;]]></string>
+    <string name="new_at_detail_comment">%d 条评论</string>
+    <string name="new_at">%d 条新提及</string>
 
 </resources>
