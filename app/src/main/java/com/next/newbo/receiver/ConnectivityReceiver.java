@@ -1,9 +1,10 @@
-package com.next.newbo.reveiver;
+package com.next.newbo.receiver;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
+import com.next.newbo.utils.AppLogger;
 import com.next.newbo.utils.NetworkUtils;
 import com.next.newbo.utils.ServiceUtils;
 
@@ -17,10 +18,8 @@ public class ConnectivityReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         if (NetworkUtils.isNetworkConnected(context)) {
-            //TODO 开启消息提醒的 Service
             ServiceUtils.startServices(context);
         } else {
-            //TODO 关闭消息提醒的 Service
             ServiceUtils.stopServices(context);
         }
     }

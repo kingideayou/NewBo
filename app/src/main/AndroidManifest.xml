@@ -45,6 +45,15 @@
             android:name=".ui.activity.UserProfileActivity"
             android:label="@string/title_activity_user_profile" >
         </activity>
+
+        <service android:name=".service.ReminderService"/>
+
+        <receiver android:name=".receiver.ConnectivityReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>

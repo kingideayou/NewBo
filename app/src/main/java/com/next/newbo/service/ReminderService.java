@@ -23,13 +23,15 @@ import com.next.newbo.utils.Settings;
  */
 public class ReminderService extends IntentService{
 
+    private static final String TAG = ReminderService.class.getSimpleName();
+
     private static final int ID = 9999;
     private static final int ID_CMT = 10000;
     private static final int ID_METION = 10001;
     private static final int ID_DM = 10002;
 
-    public ReminderService(String name) {
-        super(name);
+    public ReminderService() {
+        super(TAG);
     }
 
     @Override
