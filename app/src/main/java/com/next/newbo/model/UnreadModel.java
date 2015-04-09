@@ -1,4 +1,4 @@
-package com.next.newbo;
+package com.next.newbo.model;
 
 /**
  * Created by NeXT on 15/4/8.

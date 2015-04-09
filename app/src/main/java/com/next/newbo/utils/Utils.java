@@ -1,4 +1,4 @@
-package com.next.newbo;
+package com.next.newbo.utils;
 
 import android.content.Context;
 import android.content.res.Resources;
