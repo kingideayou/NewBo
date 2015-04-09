@@ -8,7 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.next.newbo.R;
-import com.next.newbo.cache.LoginApiCache;
+import com.next.newbo.cache.login.LoginApiCache;
 import com.next.newbo.receiver.ConnectivityReceiver;
 import com.next.newbo.utils.TimeUtils;
 

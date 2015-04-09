@@ -12,7 +12,7 @@ import android.text.TextUtils;
 import com.next.newbo.R;
 import com.next.newbo.model.UnreadModel;
 import com.next.newbo.api.remind.RemindApi;
-import com.next.newbo.cache.LoginApiCache;
+import com.next.newbo.cache.login.LoginApiCache;
 import com.next.newbo.ui.activity.ControlActivity;
 import com.next.newbo.ui.activity.MainActivity;
 import com.next.newbo.utils.AppLogger;

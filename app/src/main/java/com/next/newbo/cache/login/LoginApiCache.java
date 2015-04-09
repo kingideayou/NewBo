@@ -1,4 +1,4 @@
-package com.next.newbo.cache;
+package com.next.newbo.cache.login;
 
 import android.content.Context;
 import android.text.TextUtils;

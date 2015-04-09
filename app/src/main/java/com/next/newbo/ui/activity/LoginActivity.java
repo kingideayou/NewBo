@@ -17,7 +17,7 @@ import com.afollestad.materialdialogs.AlertDialogWrapper;
 import com.next.newbo.BaseApi;
 import com.next.newbo.R;
 import com.next.newbo.api.PrivateKey;
-import com.next.newbo.cache.LoginApiCache;
+import com.next.newbo.cache.login.LoginApiCache;
 import com.next.newbo.utils.AppLogger;
 import com.next.newbo.utils.TimeUtils;
 
