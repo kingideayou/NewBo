@@ -34,4 +34,7 @@
     <string name="new_at_detail_comment">%d 条评论</string>
     <string name="new_at">%d 条新提及</string>
 
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

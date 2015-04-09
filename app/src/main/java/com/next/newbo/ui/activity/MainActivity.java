@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
@@ -46,8 +47,6 @@ public class MainActivity extends BaseActivity implements FeedAdapter.OnFeedItem
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
         setupFeed();
-
-
 
         settings = Settings.getInstance(this);
         shakeDetector = ShakeDetector.getInstance(this);

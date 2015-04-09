@@ -36,7 +36,6 @@ public class BaseActivity extends ActionBarActivity implements GlobalMenuView.On
     @InjectView(R.id.ivLogo)
     ImageView ivLogo;
 
-    private ShakeDetector shakeDetector;
     private DrawerLayout drawerLayout;
 
     @Override
