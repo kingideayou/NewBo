@@ -11,4 +11,8 @@ public class TimeUtils {
         return (int) TimeUnit.MILLISECONDS.toDays(time - System.currentTimeMillis());
     }
 
+    public static boolean isTokenExpire(long time) {
+        return time <= System.currentTimeMillis();
+    }
+
 }

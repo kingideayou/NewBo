@@ -37,7 +37,7 @@ public class LoginApiCache {
         mAccessToken = token;
         //TODO 设置全局的 access_token
         BaseApi.setAccessToken(mAccessToken);
-        mExpireDate = System.currentTimeMillis();
+        mExpireDate = System.currentTimeMillis() + Long.valueOf(expire) * 1000;
         mUid = AccountApi.getUid();
     }
 
@@ -54,8 +54,14 @@ public class LoginApiCache {
     }
 
     public void cache() {
-        SettingHelper.setEditor(context,
-                new String[]{"access_token", "expires_in", "uid"},
-                new String[]{mAccessToken, String.valueOf(mExpireDate), mUid});
+        SettingHelper.setEditor(context, "access_token", mAccessToken);
+        SettingHelper.setEditor(context, "expires_in", mExpireDate);
+        SettingHelper.setEditor(context, "uid", mUid);
+    }
+
+    public void logout() {
+        SettingHelper.setEditor(context, "access_token", "");
+        SettingHelper.setEditor(context, "expires_in", Long.MIN_VALUE);
+        SettingHelper.setEditor(context, "uid", "");
     }
 }

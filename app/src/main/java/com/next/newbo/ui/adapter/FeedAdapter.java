@@ -14,7 +14,7 @@ import android.widget.TextSwitcher;
 import android.widget.TextView;
 
 import com.next.newbo.R;
-import com.next.newbo.Utils;
+import com.next.newbo.utils.Utils;
 import com.next.newbo.ui.view.CircleImageView;
 
 import java.util.HashMap;

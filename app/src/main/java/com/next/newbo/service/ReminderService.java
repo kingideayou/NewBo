@@ -10,7 +10,7 @@ import android.os.IBinder;
 import android.text.TextUtils;
 
 import com.next.newbo.R;
-import com.next.newbo.UnreadModel;
+import com.next.newbo.model.UnreadModel;
 import com.next.newbo.api.remind.RemindApi;
 import com.next.newbo.cache.LoginApiCache;
 import com.next.newbo.ui.activity.ControlActivity;

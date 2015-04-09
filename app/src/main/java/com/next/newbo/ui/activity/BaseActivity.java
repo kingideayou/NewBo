@@ -12,7 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 
 import com.next.newbo.R;
-import com.next.newbo.Utils;
+import com.next.newbo.utils.Utils;
 import com.next.newbo.support.ShakeDetector;
 import com.next.newbo.ui.utils.DrawerLayoutInstaller;
 import com.next.newbo.ui.view.GlobalMenuView;

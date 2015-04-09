@@ -1,11 +1,16 @@
 package com.next.newbo.ui.activity;
 
-import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.next.newbo.R;
+import com.next.newbo.cache.LoginApiCache;
+import com.next.newbo.reveiver.ConnectivityReceiver;
+import com.next.newbo.utils.TimeUtils;
 
 public class ControlActivity extends ActionBarActivity {
 
@@ -14,8 +19,29 @@ public class ControlActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_control);
 
-        //TODO 判断用户是否登录
+        new ConnectivityReceiver();
 
+        LoginApiCache loginApiCache = new LoginApiCache(this);
+        if (needLogin(loginApiCache)) {
+            loginApiCache.logout();
+            Intent loginIntent = new Intent(this, LoginActivity.class);
+            loginIntent.setAction(Intent.ACTION_MAIN);
+            startActivity(loginIntent);
+            finish();
+        } else {
+            Intent homePageIntent = new Intent(this, MainActivity.class);
+            homePageIntent.setAction(Intent.ACTION_MAIN);
+            homePageIntent.putExtra(Intent.EXTRA_INTENT, getIntent().
+                    getIntExtra(Intent.EXTRA_INTENT, 0));
+            startActivity(homePageIntent);
+            finish();
+        }
+
+    }
+
+    private boolean needLogin(LoginApiCache loginApiCache) {
+        return TextUtils.isEmpty(loginApiCache.getAccessToken()) ||
+                TimeUtils.isTokenExpire(loginApiCache.getExpireDate());
     }
 
     @Override

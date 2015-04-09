@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.next.newbo.R;
-import com.next.newbo.Utils;
+import com.next.newbo.utils.Utils;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;

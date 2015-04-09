@@ -41,10 +41,12 @@ public class LoginActivity extends BaseActivity {
         WebSettings settings = webView.getSettings();
         settings.setJavaScriptEnabled(true);
         settings.setSaveFormData(false);
+        settings.setSavePassword(false);
         settings.setCacheMode(WebSettings.LOAD_NO_CACHE);
 
         webView.setWebViewClient(new MyWebViewClient());
         webView.loadUrl(PrivateKey.getOauthLoginPage());
+        AppLogger.i(PrivateKey.getOauthLoginPage());
     }
 
     private class MyWebViewClient extends WebViewClient {
@@ -136,6 +138,7 @@ public class LoginActivity extends BaseActivity {
                         .setPositiveButton(R.string.OK, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 intent.setAction(Intent.ACTION_MAIN);
                                 startActivity(intent);

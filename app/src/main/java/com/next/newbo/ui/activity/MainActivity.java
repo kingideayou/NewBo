@@ -11,7 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.next.newbo.R;
-import com.next.newbo.Utils;
+import com.next.newbo.utils.Utils;
 import com.next.newbo.support.ShakeDetector;
 import com.next.newbo.ui.adapter.FeedAdapter;
 import com.next.newbo.utils.Settings;

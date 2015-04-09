@@ -2,7 +2,7 @@ package com.next.newbo.api.remind;
 
 import com.alibaba.fastjson.JSON;
 import com.next.newbo.BaseApi;
-import com.next.newbo.UnreadModel;
+import com.next.newbo.model.UnreadModel;
 import com.next.newbo.api.Constants;
 import com.next.newbo.support.http.WeiBoParameters;
 

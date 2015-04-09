@@ -9,7 +9,7 @@ import android.view.ViewTreeObserver;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.OvershootInterpolator;
 
-import com.next.newbo.Utils;
+import com.next.newbo.utils.Utils;
 import com.orhanobut.logger.Logger;
 
 /**

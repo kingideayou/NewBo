@@ -9,6 +9,13 @@
         <dex dex="/NeXT/MyProjects/NewBo/app/build/intermediates/pre-dexed/debug/javax.annotation-api-1.2-a5e28dff83623d2b8d120a397ed1f1eea663b7d1.jar" />
     </item>
     <item
+        jar="/NeXT/MyProjects/NewBo/app/src/libs/fastjson-1.1.45.android.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4d5140a0c8f5e4d0f263cac44dbac1019a908474">
+        <dex dex="/NeXT/MyProjects/NewBo/app/build/intermediates/pre-dexed/debug/fastjson-1.1.45.android-7e81126d1c4fac2c90bfa5e7c8145bf6f42b15ec.jar" />
+    </item>
+    <item
         jar="/NeXT/MyProjects/NewBo/app/build/intermediates/exploded-aar/de.keyboardsurfer.android.widget/crouton/1.8.5/classes.jar"
         jumboMode="false"
         revision="21.1.2"

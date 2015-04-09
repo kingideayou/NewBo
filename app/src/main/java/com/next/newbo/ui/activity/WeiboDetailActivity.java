@@ -3,11 +3,9 @@ package com.next.newbo.ui.activity;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.support.v4.view.ViewCompat;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,9 +18,8 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 
 import com.next.newbo.R;
-import com.next.newbo.Utils;
+import com.next.newbo.utils.Utils;
 import com.next.newbo.ui.adapter.CommentsAdapter;
-import com.next.newbo.ui.adapter.FeedAdapter;
 import com.next.newbo.ui.view.SendCommentButton;
 
 import butterknife.InjectView;
