@@ -2,6 +2,7 @@ package com.next.newbo.utils;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.graphics.Paint;
 import android.graphics.Point;
 import android.os.Build;
 import android.view.Display;
@@ -39,6 +40,14 @@ public class Utils {
             screenWidth = size.x;
         }
         return screenWidth;
+    }
+
+    public static int getFontHeight(Context context, float fontSize) {
+        float px = context.getResources().getDisplayMetrics().density * fontSize + 0.5f;
+        Paint paint = new Paint();
+        paint.setTextSize(px);
+        Paint.FontMetrics fm = paint.getFontMetrics();
+        return (int) Math.ceil(fm.descent - fm.ascent);
     }
 
     public static boolean isAndroid5() {
