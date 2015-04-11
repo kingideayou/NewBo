@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
     app:theme="@style/ThemeToolbar"
+    android:layout_marginTop="25dp"
     android:background="?attr/colorPrimary">
 
     <ImageView
