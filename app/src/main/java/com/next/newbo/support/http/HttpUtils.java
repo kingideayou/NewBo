@@ -38,7 +38,7 @@ public class HttpUtils
     public static final String POST = "POST";
     public static final String GET = "GET";
 
-    public static String doRequest(String url, WeiBoParameters params, String method) throws Exception {
+    public static String doRequest(String url, WeiboParameters params, String method) throws Exception {
         boolean isGet = false;
         if (method.equals(GET)) {
             isGet = true;

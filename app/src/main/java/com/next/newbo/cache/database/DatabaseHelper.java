@@ -6,7 +6,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.next.newbo.NewBoApplication;
 import com.next.newbo.cache.database.tables.TimeLineTable;
-import com.next.newbo.cache.mian.TimeLineApiCache;
 
 /**
  * Created by NeXT on 15/4/9.

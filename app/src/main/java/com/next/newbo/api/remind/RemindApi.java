@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.next.newbo.BaseApi;
 import com.next.newbo.model.UnreadModel;
 import com.next.newbo.api.Constants;
-import com.next.newbo.support.http.WeiBoParameters;
+import com.next.newbo.support.http.WeiboParameters;
 
 import org.json.JSONObject;
 
@@ -32,7 +32,7 @@ public class RemindApi extends BaseApi {
     }
 
     public static UnreadModel getUnread(String uid) {
-        WeiBoParameters params = new WeiBoParameters();
+        WeiboParameters params = new WeiboParameters();
         params.put("uid", uid);
         params.put("unread_message", 0);
         try {

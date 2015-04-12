@@ -10,7 +10,7 @@ import java.util.Set;
 /**
  * Created by NeXT on 15/4/8.
  */
-public class WeiBoParameters extends HashMap<String, Object>{
+public class WeiboParameters extends HashMap<String, Object>{
 
     public String encode() {
         boolean isFirst = true;

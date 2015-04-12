@@ -7,9 +7,9 @@ public class TimeLineTable {
 
     public static final String TABLE_NAME = "timeline_table";
 
-    private static final String ID = "id";
+    public static final String ID = "id";
 
-    private static final String JSON = "json";
+    public static final String JSON = "json";
 
     public static final String CREATE_TABLE = "create table " + TABLE_NAME
             + "("

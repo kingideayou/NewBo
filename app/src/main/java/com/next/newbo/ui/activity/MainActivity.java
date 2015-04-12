@@ -4,14 +4,18 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.DragEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.next.newbo.R;
+import com.next.newbo.utils.AppLogger;
 import com.next.newbo.utils.Utils;
 import com.next.newbo.support.ShakeDetector;
 import com.next.newbo.ui.adapter.FeedAdapter;
@@ -25,7 +29,7 @@ import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
 
 
-public class MainActivity extends BaseActivity implements FeedAdapter.OnFeedItemClickListener, FeedContextMenu.OnFeedContextMenuItemClickListener, ShakeDetector.ShakeListener {
+public class MainActivity extends BaseActivity implements FeedAdapter.OnFeedItemClickListener, FeedContextMenu.OnFeedContextMenuItemClickListener, ShakeDetector.ShakeListener, SwipeRefreshLayout.OnRefreshListener {
 
     private static final int ANIM_DURATION_TOOLBAR = 300;
 
@@ -33,9 +37,12 @@ public class MainActivity extends BaseActivity implements FeedAdapter.OnFeedItem
 
     @InjectView(R.id.rvFeed)
     RecyclerView rvFeed;
+    @InjectView(R.id.swipe_container)
+    SwipeRefreshLayout swipeRefreshLayout;
 
     private FeedAdapter feedAdapter;
     private ShakeDetector shakeDetector;
+
     private boolean pendingIntroAnimation;
 
     private Settings settings;
@@ -45,8 +52,8 @@ public class MainActivity extends BaseActivity implements FeedAdapter.OnFeedItem
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.inject(this);
         setupFeed();
+        initSwipeRefresh();
 
         settings = Settings.getInstance(this);
         shakeDetector = ShakeDetector.getInstance(this);
@@ -56,6 +63,13 @@ public class MainActivity extends BaseActivity implements FeedAdapter.OnFeedItem
         } else {
             feedAdapter.updateItems(false);
         }
+    }
+
+    private void initSwipeRefresh() {
+        swipeRefreshLayout.setOnRefreshListener(this);
+        swipeRefreshLayout.setColorSchemeResources(android.R.color.holo_blue_bright,
+                android.R.color.holo_green_light, android.R.color.holo_orange_light,
+                android.R.color.holo_red_light);
     }
 
     @Override
@@ -238,4 +252,16 @@ public class MainActivity extends BaseActivity implements FeedAdapter.OnFeedItem
             rvFeed.scrollToPosition(0);
         }
     }
+
+    @Override
+    public void onRefresh() {
+        //TODO 刷新
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        }, 5000);
+    }
+
 }

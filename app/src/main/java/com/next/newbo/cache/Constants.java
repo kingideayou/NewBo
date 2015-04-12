@@ -9,4 +9,7 @@ public class Constants {
     public static final String MENTION_SCHEME = "com.next.newbo.user";
 
     public static final int HOME_TIMELINE_ITEM_COUNT = 20;
+
+    // SQL
+    public static final String SQL_DROP_TABLE = "DROP TABLE IF EXISTS ";
 }
