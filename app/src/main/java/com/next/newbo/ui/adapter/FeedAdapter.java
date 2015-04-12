@@ -1,9 +1,11 @@
 package com.next.newbo.ui.adapter;
 
 import android.content.Context;
+import android.net.Uri;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.text.Spannable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,10 +16,13 @@ import android.widget.ImageView;
 import android.widget.TextSwitcher;
 import android.widget.TextView;
 
+import com.facebook.drawee.view.SimpleDraweeView;
+import com.google.gson.Gson;
 import com.next.newbo.R;
 import com.next.newbo.model.MessageListModel;
 import com.next.newbo.model.MessageModel;
 import com.next.newbo.support.SpannableStringUtils;
+import com.next.newbo.utils.AppLogger;
 import com.next.newbo.utils.Utils;
 import com.next.newbo.ui.view.CircleImageView;
 
@@ -83,6 +88,7 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
         feedViewHolder.tvNickName.setText(
                 messageModel.user != null ? messageModel.user.getName() : "");
         feedViewHolder.tvContent.setText(SpannableStringUtils.getSpan(mContext, messageModel));
+        feedViewHolder.ivAvatar.setImageURI(Uri.parse(messageModel.user.avatar_large));
 
     }
 
@@ -130,6 +136,7 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
                 }
                 break;
             case R.id.tv_content:
+                AppLogger.i("content click !!!");
                 if(onFeedItemClickListener != null){
                     onFeedItemClickListener.onContentClick(view, (Integer) view.getTag());
                 }
@@ -165,7 +172,7 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
         @InjectView(R.id.card_view)
         CardView cardView;
         @InjectView(R.id.iv_avatar)
-        CircleImageView ivAvatar;
+        SimpleDraweeView ivAvatar;
         @InjectView(R.id.tv_nickname)
         TextView tvNickName;
         @InjectView(R.id.tv_content)

@@ -267,13 +267,7 @@ public class MainActivity extends BaseActivity implements FeedAdapter.OnFeedItem
 
     @Override
     public void onRefresh() {
-        //TODO 刷新
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                swipeRefreshLayout.setRefreshing(false);
-            }
-        }, 5000);
+        new Refresher().execute(true);
     }
 
     protected void load(boolean param) {

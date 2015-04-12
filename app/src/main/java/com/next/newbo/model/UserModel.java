@@ -145,4 +145,42 @@ public class UserModel implements Parcelable{
         }
     };
 
+
+    @Override
+    public String toString() {
+        return "UserModel{" +
+                "timestamp=" + timestamp +
+                ", nameWithRemark='" + nameWithRemark + '\'' +
+                ", id='" + id + '\'' +
+                ", screen_name='" + screen_name + '\'' +
+                ", name='" + name + '\'' +
+                ", remark='" + remark + '\'' +
+                ", province='" + province + '\'' +
+                ", city='" + city + '\'' +
+                ", location='" + location + '\'' +
+                ", description='" + description + '\'' +
+                ", url='" + url + '\'' +
+                ", profile_image_url='" + profile_image_url + '\'' +
+                ", domain='" + domain + '\'' +
+                ", gender='" + gender + '\'' +
+                ", followers_count=" + followers_count +
+                ", friends_count=" + friends_count +
+                ", statuses_count=" + statuses_count +
+                ", favourites_count=" + favourites_count +
+                ", verified_type=" + verified_type +
+                ", created_at='" + created_at + '\'' +
+                ", following=" + following +
+                ", allow_all_act_msg=" + allow_all_act_msg +
+                ", geo_enabled=" + geo_enabled +
+                ", verified=" + verified +
+                ", allow_all_comment=" + allow_all_comment +
+                ", avatar_large='" + avatar_large + '\'' +
+                ", verified_reason='" + verified_reason + '\'' +
+                ", follow_me=" + follow_me +
+                ", online_status=" + online_status +
+                ", bi_followers_count=" + bi_followers_count +
+                ", cover_image='" + cover_image + '\'' +
+                ", cover_image_phone='" + cover_image_phone + '\'' +
+                '}';
+    }
 }

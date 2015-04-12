@@ -7,7 +7,7 @@
 
     <dimen name="card_top_margin">6dp</dimen>
     <dimen name="card_bottom_margin">6dp</dimen>
-    <dimen name="text_image_margin">6dp</dimen>
+    <dimen name="text_image_margin">10dp</dimen>
 
     <dimen name="text_big_size">16sp</dimen>
     <dimen name="text_normal_size">14sp</dimen>
