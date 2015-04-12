@@ -27,9 +27,8 @@ public class LoginApiCache {
         mAccessToken = SettingHelper.getSharedPreferences(context, ACCESS_TOKEN, "");
         mUid = SettingHelper.getSharedPreferences(context, UID, "");
         mExpireDate = SettingHelper.getSharedPreferences(context, EXPIRES_IN, Long.MIN_VALUE);
-        if (TextUtils.isEmpty(mAccessToken)){
-            //TODO 设置全局的 access_token
-            AppLogger.i("access_token : " + mAccessToken);
+        if (!TextUtils.isEmpty(mAccessToken)){
+            BaseApi.setAccessToken(mAccessToken);
         }
     }
 

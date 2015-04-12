@@ -1,6 +1,6 @@
 package com.next.newbo.api.remind;
 
-import com.alibaba.fastjson.JSON;
+import com.google.gson.Gson;
 import com.next.newbo.BaseApi;
 import com.next.newbo.model.UnreadModel;
 import com.next.newbo.api.Constants;
@@ -36,8 +36,8 @@ public class RemindApi extends BaseApi {
         params.put("uid", uid);
         params.put("unread_message", 0);
         try {
-            JSONObject json = request(HTTP_GET, Constants.REMIND_UNREAD_COUNT, params);
-            return JSON.parseObject(json.toString(), UnreadModel.class);
+            JSONObject json = request(Constants.REMIND_UNREAD_COUNT, params, HTTP_GET);
+            return new Gson().fromJson(json.toString(), UnreadModel.class);
         } catch (Exception e) {
             e.printStackTrace();
         }

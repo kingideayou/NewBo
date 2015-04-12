@@ -3,6 +3,7 @@ package com.next.newbo.ui.activity;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -15,6 +16,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.next.newbo.R;
+import com.next.newbo.cache.main.TimeLineApiCache;
 import com.next.newbo.utils.AppLogger;
 import com.next.newbo.utils.Utils;
 import com.next.newbo.support.ShakeDetector;
@@ -48,15 +50,26 @@ public class MainActivity extends BaseActivity implements FeedAdapter.OnFeedItem
     private Settings settings;
     private boolean isFeedMenuShow = false;
 
+    private int mLastCount = 0;
+    private boolean mRefreshing = false;
+    private TimeLineApiCache mCache;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setupFeed();
-        initSwipeRefresh();
 
         settings = Settings.getInstance(this);
         shakeDetector = ShakeDetector.getInstance(this);
+
+        mCache = new TimeLineApiCache(this);
+        mCache.loadFromCache();
+        if (mCache.mMessages.getSize() == 0) {
+            new Refresher().execute(true);
+        }
+
+        setupFeed();
+        initSwipeRefresh();
 
         if(savedInstanceState == null){
             pendingIntroAnimation = true;
@@ -98,8 +111,7 @@ public class MainActivity extends BaseActivity implements FeedAdapter.OnFeedItem
         };
         rvFeed.setLayoutManager(layoutManager);
 
-        feedAdapter = new FeedAdapter(getApplicationContext(), new String[]{"1","2","3",
-                "4","5","6","7","8","9"});
+        feedAdapter = new FeedAdapter(getApplicationContext(), mCache.mMessages);
         feedAdapter.setOnFeedClickListener(this);
         rvFeed.setAdapter(feedAdapter);
         /*
@@ -264,4 +276,41 @@ public class MainActivity extends BaseActivity implements FeedAdapter.OnFeedItem
         }, 5000);
     }
 
+    protected void load(boolean param) {
+        mCache.load(param);
+        mCache.cache();
+    }
+
+    private class Refresher extends AsyncTask<Boolean, Void, Boolean>{
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            //TODO 清除红点
+            mLastCount = mCache.mMessages.getSize();
+            mRefreshing = true;
+            if (swipeRefreshLayout != null) {
+                swipeRefreshLayout.setRefreshing(true);
+            }
+        }
+
+        @Override
+        protected Boolean doInBackground(Boolean... params) {
+            load(params[0]);
+            return params[0];
+        }
+
+        @Override
+        protected void onPostExecute(Boolean result) {
+            super.onPostExecute(result);
+            if (result) {
+                rvFeed.stopScroll();
+            }
+
+            feedAdapter.notifyDataSetChanged();
+            if (swipeRefreshLayout != null) {
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        }
+    }
 }

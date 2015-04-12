@@ -4,7 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.alibaba.fastjson.JSON;
+import com.google.gson.Gson;
 import com.next.newbo.api.friendships.GroupsApi;
 import com.next.newbo.api.statuses.BilateralTimeLineApi;
 import com.next.newbo.api.statuses.HomeTimeLineApi;
@@ -14,6 +14,7 @@ import com.next.newbo.cache.database.tables.TimeLineTable;
 import com.next.newbo.cache.database.tasks.TimeLineDBTask;
 import com.next.newbo.cache.login.LoginApiCache;
 import com.next.newbo.model.MessageListModel;
+import com.next.newbo.utils.AppLogger;
 
 /**
  * Created by NeXT on 15/4/9.
@@ -38,7 +39,7 @@ public class TimeLineApiCache {
         if (cursor.getCount() == 1) {
             cursor.moveToFirst();
             //TODO 解析数据
-            mMessages = JSON.parseObject(cursor.getString(1), getListClass());
+            mMessages = new Gson().fromJson(cursor.getString(1), getListClass());
             mCurrentPage = mMessages.getSize() / Constants.HOME_TIMELINE_ITEM_COUNT;
             mMessages.spanAll(mContext);
             mMessages.timestampAll(mContext);
@@ -61,6 +62,15 @@ public class TimeLineApiCache {
             mCurrentPage = 0;
         }
         MessageListModel list = load(groupId);
+
+        AppLogger.i("list size : " + list.getSize());
+
+        if (newWeibo) {
+            mMessages.getList().clear();
+        }
+        mMessages.addAll(false, mFriendOnly, list, mUid);
+        mMessages.spanAll(mContext);
+        mMessages.timestampAll(mContext);
     }
 
     private MessageListModel load(String groupId) {
@@ -88,7 +98,7 @@ public class TimeLineApiCache {
         return getRsd().query(TimeLineTable.TABLE_NAME, null, null, null, null, null, null);
     }
 
-    private void cache() {
+    public void cache() {
         TimeLineDBTask.updateTable(1, mMessages);
     }
 

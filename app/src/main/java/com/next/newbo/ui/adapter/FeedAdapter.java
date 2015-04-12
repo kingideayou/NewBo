@@ -3,6 +3,7 @@ package com.next.newbo.ui.adapter;
 import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.text.Spannable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,9 @@ import android.widget.TextSwitcher;
 import android.widget.TextView;
 
 import com.next.newbo.R;
+import com.next.newbo.model.MessageListModel;
+import com.next.newbo.model.MessageModel;
+import com.next.newbo.support.SpannableStringUtils;
 import com.next.newbo.utils.Utils;
 import com.next.newbo.ui.view.CircleImageView;
 
@@ -28,18 +32,18 @@ import butterknife.InjectView;
  */
 public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements View.OnClickListener {
 
-    private Context context;
-    private String[] mDataset;
+    private Context mContext;
     private boolean animateItems = false;
     private int lastAnimatedPosition = -1;
 
+    private MessageListModel messageList;
     private final Map<Integer, Integer> likesCount = new HashMap<>();
 
     private OnFeedItemClickListener onFeedItemClickListener;
 
-    public FeedAdapter(Context context, String[] mDataset){
-        this.context = context;
-        this.mDataset = mDataset;
+    public FeedAdapter(Context context, MessageListModel messageList){
+        this.mContext = context;
+        this.messageList = messageList;
     }
 
     @Override
@@ -73,15 +77,22 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
         feedViewHolder.ivStar.setTag(feedViewHolder);
 
 //        feedViewHolder.textView.setText(mDataset[i]);
+
+        MessageModel messageModel = messageList.get(position);
+
+        feedViewHolder.tvNickName.setText(
+                messageModel.user != null ? messageModel.user.getName() : "");
+        feedViewHolder.tvContent.setText(SpannableStringUtils.getSpan(mContext, messageModel));
+
     }
 
     private void runEnterAnimation(View itemView, int position) {
-        if (!animateItems || position >= mDataset.length) {
+        if (!animateItems || position >= messageList.getSize()) {
             return;
         }
         if (position > lastAnimatedPosition){
             lastAnimatedPosition = position;
-            itemView.setTranslationY(Utils.getScreenHeight(context));
+            itemView.setTranslationY(Utils.getScreenHeight(mContext));
             itemView.animate()
                     .translationY(0)
                     .setInterpolator(new DecelerateInterpolator(3.f))
@@ -92,7 +103,7 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
 
     @Override
     public int getItemCount() {
-        return mDataset.length;
+        return messageList.getSize();
     }
 
     public void updateItems(boolean animated) {
@@ -137,7 +148,7 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
 
     private void updateLikesCount(FeedViewHolder holder, boolean animated) {
         int currentLikesCount = 126;
-        String likesCountText = context.getResources().getQuantityString(
+        String likesCountText = mContext.getResources().getQuantityString(
                 R.plurals.likes_count, currentLikesCount, currentLikesCount
         );
 

@@ -16,18 +16,18 @@
         <dex dex="/Users/NeXT/Projects/NewBo/app/build/intermediates/pre-dexed/debug/classes-7f0f6543b14199aef7afa6ad52e099de64f37e10.jar" />
     </item>
     <item
-        jar="/Users/NeXT/Projects/NewBo/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
-        <dex dex="/Users/NeXT/Projects/NewBo/app/build/intermediates/pre-dexed/debug/classes-4dcb26ea35867af10e2726edd7de09af17776b8e.jar" />
-    </item>
-    <item
         jar="/Users/NeXT/Projects/NewBo/app/build/intermediates/exploded-aar/com.afollestad/material-dialogs/0.7.0.1/classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="02d3f0f0bceb66a826a9daae256c82fc7c117485">
         <dex dex="/Users/NeXT/Projects/NewBo/app/build/intermediates/pre-dexed/debug/classes-c6c3af8600b2e6442d973585a1b189cbb1b9486d.jar" />
+    </item>
+    <item
+        jar="/Users/NeXT/Projects/NewBo/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
+        <dex dex="/Users/NeXT/Projects/NewBo/app/build/intermediates/pre-dexed/debug/classes-4dcb26ea35867af10e2726edd7de09af17776b8e.jar" />
     </item>
     <item
         jar="/Users/NeXT/Projects/NewBo/app/build/intermediates/exploded-aar/com.facebook.fresco/fbcore/0.1.0/classes.jar"
@@ -51,18 +51,18 @@
         <dex dex="/Users/NeXT/Projects/NewBo/app/build/intermediates/pre-dexed/debug/classes-14a6de6132c971f727bc7517d8fe28c879da5b53.jar" />
     </item>
     <item
+        jar="/Users/NeXT/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.3.1/ecb6e1f8e4b0e84c4b886c2f14a1500caf309757/gson-2.3.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
+        <dex dex="/Users/NeXT/Projects/NewBo/app/build/intermediates/pre-dexed/debug/gson-2.3.1-c8c83e619c3551a764f7adfddd0fa2b79a9cfe61.jar" />
+    </item>
+    <item
         jar="/Users/NeXT/Projects/NewBo/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline/0.1.0/classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="d828c72c628984cbaf8669a500726f0c0e6adb59">
         <dex dex="/Users/NeXT/Projects/NewBo/app/build/intermediates/pre-dexed/debug/classes-2e0b452c4762228687ad0a7b572777c87fab5971.jar" />
-    </item>
-    <item
-        jar="/Users/NeXT/Projects/NewBo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="d84409890828e07d344a3b9b1da545dba9897b51">
-        <dex dex="/Users/NeXT/Projects/NewBo/app/build/intermediates/pre-dexed/debug/classes-76223d78dd59e1ec6ae8ac7d685cd00446d71f65.jar" />
     </item>
     <item
         jar="/Users/NeXT/.gradle/caches/modules-2/files-2.1/javax.annotation/javax.annotation-api/1.2/479c1e06db31c432330183f5cae684163f186146/javax.annotation-api-1.2.jar"
@@ -72,11 +72,11 @@
         <dex dex="/Users/NeXT/Projects/NewBo/app/build/intermediates/pre-dexed/debug/javax.annotation-api-1.2-6082985b2e337907306228dcb2d32bcc59f9f6fd.jar" />
     </item>
     <item
-        jar="/Users/NeXT/Projects/NewBo/app/build/intermediates/exploded-aar/de.keyboardsurfer.android.widget/crouton/1.8.5/classes.jar"
+        jar="/Users/NeXT/Projects/NewBo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="b81c788c5f175f94ddaac2f65e5d1726371e0963">
-        <dex dex="/Users/NeXT/Projects/NewBo/app/build/intermediates/pre-dexed/debug/classes-9b65079af19c73f0d299a3d9734e8519295c7291.jar" />
+        sha1="d84409890828e07d344a3b9b1da545dba9897b51">
+        <dex dex="/Users/NeXT/Projects/NewBo/app/build/intermediates/pre-dexed/debug/classes-76223d78dd59e1ec6ae8ac7d685cd00446d71f65.jar" />
     </item>
     <item
         jar="/Users/NeXT/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife/6.1.0/63735f48b82bcd24cdd33821342428252eb1ca5a/butterknife-6.1.0.jar"
@@ -84,6 +84,13 @@
         revision="21.1.2"
         sha1="63735f48b82bcd24cdd33821342428252eb1ca5a">
         <dex dex="/Users/NeXT/Projects/NewBo/app/build/intermediates/pre-dexed/debug/butterknife-6.1.0-5c9677ea0783b258e19e1e25734b3ef41313080a.jar" />
+    </item>
+    <item
+        jar="/Users/NeXT/Projects/NewBo/app/build/intermediates/exploded-aar/de.keyboardsurfer.android.widget/crouton/1.8.5/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="b81c788c5f175f94ddaac2f65e5d1726371e0963">
+        <dex dex="/Users/NeXT/Projects/NewBo/app/build/intermediates/pre-dexed/debug/classes-9b65079af19c73f0d299a3d9734e8519295c7291.jar" />
     </item>
     <item
         jar="/Users/NeXT/Projects/NewBo/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/libs/internal_impl-22.0.0.jar"

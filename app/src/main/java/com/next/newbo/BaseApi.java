@@ -31,6 +31,7 @@ public abstract class BaseApi {
     protected static<T> T request(String method, String token, String url, WeiboParameters params,
                                   Class<T> jsonClass) {
         if (token == null) {
+            AppLogger.i("Token == null");
             return null;
         } else {
             params.put("access_token", token);
@@ -44,6 +45,7 @@ public abstract class BaseApi {
                 }
             } catch (Exception e) {
                 e.printStackTrace();
+                AppLogger.e(e);
                 return null;
             }
         }

@@ -14,7 +14,6 @@ public class TimeLineTable {
     public static final String CREATE_TABLE = "create table " + TABLE_NAME
             + "("
             + ID + " integer primary key autoincrement ,"
-            + ")"
             + JSON + " text"
             + ");";
 

@@ -74,9 +74,6 @@ public class BaseActivity extends ActionBarActivity implements GlobalMenuView.On
         AppLogger.i("mActionBar Height : " + actionBarHeight);
         tintManager.getConfig().setActionBarHeight(actionBarHeight);
         */
-        AppLogger.i("ActionBar Height : "+tintManager.getConfig().getActionBarHeight());
-        AppLogger.i("StatusBar Height : " + tintManager.getConfig().getStatusBarHeight());
-
         super.onCreate(savedInstanceState);
     }
 

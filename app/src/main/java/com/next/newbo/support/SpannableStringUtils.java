@@ -116,9 +116,6 @@ public class SpannableStringUtils {
 
     public static SpannableString getSpan(Context context, MessageModel msg) {
         if (msg.span == null) {
-
-            AppLogger.d(msg.id + " span is null");
-
             msg.span = span(context, msg.text);
         }
 
