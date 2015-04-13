@@ -1,7 +1,11 @@
 package com.next.newbo.ui.adapter;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.text.Spannable;
@@ -19,9 +23,13 @@ import android.widget.TextView;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.gson.Gson;
 import com.next.newbo.R;
+import com.next.newbo.model.CommentModel;
 import com.next.newbo.model.MessageListModel;
 import com.next.newbo.model.MessageModel;
+import com.next.newbo.support.HackyMovementMethod;
 import com.next.newbo.support.SpannableStringUtils;
+import com.next.newbo.ui.activity.WeiboDetailActivity;
+import com.next.newbo.ui.view.HackyTextView;
 import com.next.newbo.utils.AppLogger;
 import com.next.newbo.utils.Utils;
 import com.next.newbo.ui.view.CircleImageView;
@@ -62,8 +70,10 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
                 R.layout.item_feed, viewGroup, false);
         FeedViewHolder viewHolder = new FeedViewHolder(view);
 
+        viewHolder.tvContent.setMovementMethod(HackyMovementMethod.getInstance());
+
         viewHolder.cardView.setOnClickListener(this);
-        viewHolder.tvContent.setOnClickListener(this);
+//        viewHolder.tvContent.setOnClickListener(this);
         viewHolder.btnComment.setOnClickListener(this);
         viewHolder.btnTranspond.setOnClickListener(this);
         viewHolder.btnMore.setOnClickListener(this);
@@ -101,7 +111,7 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
         feedViewHolder.ivAvatar.setImageResource(R.mipmap.ic_launcher);
 
         feedViewHolder.cardView.setTag(position);
-        feedViewHolder.tvContent.setTag(position);
+//        feedViewHolder.tvContent.setTag(position);
         feedViewHolder.cardView.setTag(position);
         feedViewHolder.btnComment.setTag(position);
         feedViewHolder.btnTranspond.setTag(position);
@@ -162,20 +172,43 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
                 }
                 break;
             case R.id.tv_content:
-                AppLogger.i("content click !!!");
                 if(onFeedItemClickListener != null){
                     onFeedItemClickListener.onContentClick(view, (Integer) view.getTag());
                 }
+                toWeiboDetailPage(view);
                 break;
             case R.id.card_view:
                 if(onFeedItemClickListener != null){
                     onFeedItemClickListener.onContentClick(view, (Integer)view.getTag());
                 }
+                toWeiboDetailPage(view);
                 break;
             case R.id.iv_star:
                 FeedViewHolder viewHolder = (FeedViewHolder) view.getTag();
                 updateLikesCount(viewHolder, true);
                 break;
+        }
+    }
+
+    private void toWeiboDetailPage(View view) {
+        try {
+            MessageModel messageModel = messageList.get((Integer)view.getTag());
+            if (messageModel == null ) {
+                return ;
+            }
+            //TODO 跳转到详情页
+            Intent intent = new Intent(mContext, WeiboDetailActivity.class);
+            intent.setAction(Intent.ACTION_MAIN);
+            intent.putExtra("msg", messageModel);
+
+            //TODO 目前动画效果只支持 5.0
+            ActivityOptionsCompat o =
+                    ActivityOptionsCompat.makeSceneTransitionAnimation(
+                            (Activity) view.getContext(), view, "msg");
+            ActivityCompat.startActivity((Activity) view.getContext(), intent, o.toBundle());
+
+        } catch (IllegalArgumentException e) {
+            return;
         }
     }
 
@@ -201,8 +234,8 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
         SimpleDraweeView ivAvatar;
         @InjectView(R.id.tv_nickname)
         TextView tvNickName;
-        @InjectView(R.id.tv_content)
-        TextView tvContent;
+//        @InjectView(R.id.tv_content)
+//        HackyTextView tvContent;
         @InjectView(R.id.grid_main)
         GridLayout gridMain;
         @InjectView(R.id.btn_comment)
@@ -215,6 +248,8 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
         ImageView ivStar;
         @InjectView(R.id.ts_likes_counter)
         TextSwitcher tsLikesCounter;
+        @InjectView(R.id.tv_content)
+        HackyTextView tvContent;
 
         public FeedViewHolder(View view) {
             super(view);

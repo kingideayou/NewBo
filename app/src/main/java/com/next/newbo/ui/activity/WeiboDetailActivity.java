@@ -138,6 +138,11 @@ public class WeiboDetailActivity extends BaseActivity implements SendCommentButt
     }
 
     @Override
+    protected void onSaveInstanceState(Bundle outState) {
+
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 

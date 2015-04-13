@@ -27,7 +27,7 @@ public class WeiboSpan extends ClickableSpan {
 
     public WeiboSpan(String url) {
         mUrl = url;
-        mUri = Uri.parse(url);
+        mUri = Uri.parse(mUrl);
     }
 
     public String getUrl() {
@@ -45,12 +45,14 @@ public class WeiboSpan extends ClickableSpan {
             intent.setData(mUri);
             context.startActivity(intent);
         } else {
-            if (mUri.getScheme().startsWith(Constants.MENTION_SCHEME)) {
+//            if (mUri.getScheme().startsWith(Constants.MENTION_SCHEME)) {
+            if (mUri.getScheme().startsWith("com.next.newbo.user")) {
                 String userName = mUrl.substring(mUrl.lastIndexOf("@") + 1, mUrl.length());
                 AppLogger.i("点击 @ 用户");
                 Toast.makeText(NewBoApplication.getInstance(), "点击 : "+userName, Toast.LENGTH_SHORT).show();
                 new UserInfoTask().execute(context, userName);
-            } else if (mUri.getScheme().startsWith(Constants.TOPIC_SCHEME)) {
+//            } else if (mUri.getScheme().startsWith(Constants.TOPIC_SCHEME)) {
+            } else if (mUri.getScheme().startsWith("com.next.newbo.topic")) {
                 String topicName = mUrl.substring(mUrl.indexOf("#") + 1,
                         mUrl.lastIndexOf("#"));
                 Toast.makeText(NewBoApplication.getInstance(), "话题 : "+topicName, Toast.LENGTH_SHORT).show();

@@ -99,10 +99,7 @@ public class SpannableStringUtils {
                 span = new StyleSpan(type);
             }
 
-            if (span != null) {
-                ssb.setSpan(span, start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-            }
-
+            ssb.setSpan(span, start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             ssb.delete(start, start + len);
 
             end -= len;
@@ -118,7 +115,6 @@ public class SpannableStringUtils {
         if (msg.span == null) {
             msg.span = span(context, msg.text);
         }
-
         return msg.span;
     }
 
@@ -146,8 +142,6 @@ public class SpannableStringUtils {
                 return true;
             }
         }
-
         return false;
     }
-
 }

@@ -16,5 +16,6 @@
     <color name="bg_comments">#ffffff</color>
     <color name="et_text_color">#555555</color>
     <color name="fad_color_shadow">#44000000</color>
+    <color name="selector_gray">#eaeaea</color>
 
 </resources>

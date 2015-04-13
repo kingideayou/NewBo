@@ -241,7 +241,6 @@ public class MainActivity extends BaseActivity implements FeedAdapter.OnFeedItem
 
     @Override
     public void onContentClick(View v, int position) {
-        Crouton.showText(this, "点击第" + position + "条文本", Style.INFO);
         dismissFeedMenu();
     }
 
