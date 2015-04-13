@@ -26,6 +26,7 @@ import com.next.newbo.utils.AppLogger;
 import com.next.newbo.utils.Utils;
 import com.next.newbo.ui.view.CircleImageView;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -43,12 +44,16 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
 
     private MessageListModel messageList;
     private final Map<Integer, Integer> likesCount = new HashMap<>();
+    private ArrayList<RecyclerView.OnScrollListener> mListeners = new ArrayList<>();
 
+    private RecyclerView recyclerView;
+    private RecyclerView.OnScrollListener onScrollListener;
     private OnFeedItemClickListener onFeedItemClickListener;
 
-    public FeedAdapter(Context context, MessageListModel messageList){
+    public FeedAdapter(Context context, MessageListModel messageList, RecyclerView recyclerView){
         this.mContext = context;
         this.messageList = messageList;
+        this.recyclerView = recyclerView;
     }
 
     @Override
@@ -63,6 +68,28 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
         viewHolder.btnTranspond.setOnClickListener(this);
         viewHolder.btnMore.setOnClickListener(this);
         viewHolder.ivStar.setOnClickListener(this);
+
+
+        onScrollListener = new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                for (RecyclerView.OnScrollListener listener : mListeners) {
+                    if (listener != null) {
+                        listener.onScrolled(recyclerView, dx, dy);
+                    }
+                }
+            }
+
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                for (RecyclerView.OnScrollListener listener : mListeners) {
+                    if (listener != null) {
+                        listener.onScrollStateChanged(recyclerView, newState);
+                    }
+                }
+            }
+        };
+        recyclerView.setOnScrollListener(onScrollListener);
 
         return viewHolder;
     }
@@ -89,7 +116,6 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
                 messageModel.user != null ? messageModel.user.getName() : "");
         feedViewHolder.tvContent.setText(SpannableStringUtils.getSpan(mContext, messageModel));
         feedViewHolder.ivAvatar.setImageURI(Uri.parse(messageModel.user.avatar_large));
-
     }
 
     private void runEnterAnimation(View itemView, int position) {
@@ -207,6 +233,10 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
         public void onTranspondClick(View v, int position);
         public void onContentClick(View v, int position);
 
+    }
+
+    public void addOnScrollListener(RecyclerView.OnScrollListener listener) {
+        mListeners.add(listener);
     }
 
 }

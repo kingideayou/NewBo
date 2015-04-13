@@ -103,7 +103,7 @@ public class MainActivity extends BaseActivity implements FeedAdapter.OnFeedItem
         //提高性能
 //        rvFeed.setHasFixedSize(true);
 
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this) {
+        final LinearLayoutManager layoutManager = new LinearLayoutManager(this) {
             @Override
             protected int getExtraLayoutSpace(RecyclerView.State state) {
                 return 300;
@@ -111,7 +111,7 @@ public class MainActivity extends BaseActivity implements FeedAdapter.OnFeedItem
         };
         rvFeed.setLayoutManager(layoutManager);
 
-        feedAdapter = new FeedAdapter(getApplicationContext(), mCache.mMessages);
+        feedAdapter = new FeedAdapter(getApplicationContext(), mCache.mMessages, rvFeed);
         feedAdapter.setOnFeedClickListener(this);
         rvFeed.setAdapter(feedAdapter);
         /*
@@ -126,12 +126,19 @@ public class MainActivity extends BaseActivity implements FeedAdapter.OnFeedItem
                 })
         );
         */
-        rvFeed.setOnScrollListener(new RecyclerView.OnScrollListener(){
+        feedAdapter.addOnScrollListener(new RecyclerView.OnScrollListener(){
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
                 isFeedMenuShow = false;
                 FeedContextMenuManager.getInstance().onScrolled(recyclerView, dx, dy);
+
+                //未加载数据 && 有 1-5 个未显示 Item && RecycleView 状态未上滑
+                if (!mRefreshing && layoutManager.findLastVisibleItemPosition() >=
+                        feedAdapter.getItemCount() - 5 && dy > 0) {
+                    new Refresher().execute(false);
+                }
+
             }
         });
         rvFeed.setVisibility(View.GONE);
@@ -302,9 +309,11 @@ public class MainActivity extends BaseActivity implements FeedAdapter.OnFeedItem
             }
 
             feedAdapter.notifyDataSetChanged();
+            mRefreshing = false;
             if (swipeRefreshLayout != null) {
                 swipeRefreshLayout.setRefreshing(false);
             }
         }
     }
+
 }

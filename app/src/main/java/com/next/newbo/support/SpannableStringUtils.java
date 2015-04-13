@@ -125,8 +125,6 @@ public class SpannableStringUtils {
     public static SpannableString getOrigSpan(Context context, MessageModel orig) {
         if (orig.origSpan == null) {
 
-            AppLogger.d(orig.id + " origSpan is null");
-
             String username = "";
 
             if (orig.user != null) {

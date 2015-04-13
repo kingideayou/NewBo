@@ -149,13 +149,10 @@ public class FeedContextMenuManager extends RecyclerView.OnScrollListener implem
 
     @Override
     public void onViewAttachedToWindow(View view) {
-        Logger.i("onViewAttachedToWindow");
-        Logger.wtf("onViewAttachedToWindow");
     }
 
     @Override
     public void onViewDetachedFromWindow(View view) {
-        Logger.i("onViewDetachedFromWindow");
         contextMenu = null;
     }
 }
