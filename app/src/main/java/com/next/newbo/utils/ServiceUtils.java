@@ -17,7 +17,7 @@ public class ServiceUtils {
     public static void startServices(Context context) {
         Settings settings = Settings.getInstance(context);
         int interval = getIntervalTime(settings.getInt(
-                Settings.NOTIFICATIN_ONGOING, 1));
+                Settings.NOTIFICATIN_INTERVAL, 1));
         if (interval > -1) {
             startServiceAlarm(context, ReminderService.class, interval);
         }

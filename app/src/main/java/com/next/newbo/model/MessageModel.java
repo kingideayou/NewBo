@@ -183,4 +183,36 @@ public class MessageModel implements Parcelable{
         }
     };
 
+    @Override
+    public String toString() {
+        return "MessageModel{" +
+                "created_at='" + created_at + '\'' +
+                ", id=" + id +
+                ", mid=" + mid +
+                ", idstr='" + idstr + '\'' +
+                ", text='" + text + '\'' +
+                ", source='" + source + '\'' +
+                ", favorited=" + favorited +
+                ", truncated=" + truncated +
+                ", liked=" + liked +
+                ", in_reply_to_status_id='" + in_reply_to_status_id + '\'' +
+                ", in_reply_to_user_id='" + in_reply_to_user_id + '\'' +
+                ", in_reply_to_screen_name='" + in_reply_to_screen_name + '\'' +
+                ", thumbnail_pic='" + thumbnail_pic + '\'' +
+                ", bmiddle_pic='" + bmiddle_pic + '\'' +
+                ", original_pic='" + original_pic + '\'' +
+                ", geo=" + geo +
+                ", user=" + user +
+                ", retweeted_status=" + retweeted_status +
+                ", reposts_count=" + reposts_count +
+                ", comments_count=" + comments_count +
+                ", attitudes_count=" + attitudes_count +
+                ", annotations=" + annotations +
+                ", span=" + span +
+                ", origSpan=" + origSpan +
+                ", millis=" + millis +
+                ", pic_urls=" + pic_urls +
+                ", unClickable=" + unClickable +
+                '}';
+    }
 }

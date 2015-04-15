@@ -138,7 +138,7 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
             itemView.animate()
                     .translationY(0)
                     .setInterpolator(new DecelerateInterpolator(3.f))
-                    .setDuration(600)
+                    .setDuration(500)
                     .start();
         }
     }
@@ -208,7 +208,7 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
             ActivityCompat.startActivity((Activity) view.getContext(), intent, o.toBundle());
 
         } catch (IllegalArgumentException e) {
-            return;
+            e.printStackTrace();
         }
     }
 

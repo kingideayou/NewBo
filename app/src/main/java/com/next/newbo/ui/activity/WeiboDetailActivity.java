@@ -2,6 +2,7 @@ package com.next.newbo.ui.activity;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.net.Uri;
 import android.support.v4.view.ViewCompat;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -16,8 +17,14 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.next.newbo.R;
+import com.next.newbo.model.MessageModel;
+import com.next.newbo.support.SpannableStringUtils;
+import com.next.newbo.ui.view.HackyTextView;
+import com.next.newbo.utils.AppLogger;
 import com.next.newbo.utils.Utils;
 import com.next.newbo.ui.adapter.CommentsAdapter;
 import com.next.newbo.ui.view.SendCommentButton;
@@ -39,12 +46,16 @@ public class WeiboDetailActivity extends BaseActivity implements SendCommentButt
     @InjectView(R.id.ll_add_comment)
     LinearLayout llAddComment;
 
+    private MessageModel messageModel;
     private CommentsAdapter commentsAdapter;
     private int drawingStartLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        messageModel = getIntent().getParcelableExtra("msg");
+
         setContentView(R.layout.activity_weibo_detail);
         setupComments();
         setupSendCommentButton();
@@ -95,7 +106,7 @@ public class WeiboDetailActivity extends BaseActivity implements SendCommentButt
         rvComment.setLayoutManager(linearLayoutManager);
         rvComment.setHasFixedSize(true);
 
-        commentsAdapter = new CommentsAdapter(this);
+        commentsAdapter = new CommentsAdapter(this, messageModel);
         rvComment.setAdapter(commentsAdapter);
         rvComment.setOverScrollMode(View.OVER_SCROLL_NEVER);
         rvComment.setOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -124,7 +135,7 @@ public class WeiboDetailActivity extends BaseActivity implements SendCommentButt
                     @Override
                     public void onAnimationEnd(Animator animation) {
                         super.onAnimationEnd(animation);
-                        WeiboDetailActivity.super.onBackPressed();
+                        WeiboDetailActivity.this.finish();
                         overridePendingTransition(0, 0);
                     }
                 })
