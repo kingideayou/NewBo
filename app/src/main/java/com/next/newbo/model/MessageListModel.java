@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Parcel;
 
 import com.next.newbo.support.SpannableStringUtils;
+import com.next.newbo.support.StatusTimeUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,8 +43,15 @@ public class MessageListModel extends BaseListModel<MessageModel, MessageListMod
         }
     }
 
-    public void timestampAll(Context mContext) {
-
+    public void timestampAll(Context context) {
+        StatusTimeUtils utils = StatusTimeUtils.instance(context);
+        for (MessageModel messageModel : getList()) {
+            messageModel.millis = utils.parseTimeString(messageModel.created_at);
+            if (messageModel.retweeted_status != null) {
+                messageModel.retweeted_status.millis =
+                        utils.parseTimeString(messageModel.created_at);
+            }
+        }
     }
 
     @Override
