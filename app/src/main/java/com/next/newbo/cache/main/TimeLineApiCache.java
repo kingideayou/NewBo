@@ -103,11 +103,11 @@ public class TimeLineApiCache {
     }
 
 
-    private SQLiteDatabase getRsd() {
+    protected SQLiteDatabase getRsd() {
         return DatabaseHelper.getInstance().getReadableDatabase();
     }
 
-    private SQLiteDatabase getWsd() {
+    protected SQLiteDatabase getWsd() {
         return DatabaseHelper.getInstance().getWritableDatabase();
     }
 

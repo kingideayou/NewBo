@@ -27,6 +27,14 @@ public class Constants {
     public static final String UPLOAD_PIC = SINA_BASE_URL + "statuses/upload_pic.json";
     public static final String UPLOAD_URL_TEXT = SINA_BASE_URL + "statuses/upload_url_text.json";
 
+    // Comments
+    public static final String COMMENTS_TIMELINE = SINA_BASE_URL + "comments/timeline.json";
+    public static final String COMMENTS_MENTIONS = SINA_BASE_URL + "comments/mentions.json";
+    public static final String COMMENTS_SHOW = SINA_BASE_URL + "comments/show.json";
+    public static final String COMMENTS_CREATE = SINA_BASE_URL + "comments/create.json";
+    public static final String COMMENTS_REPLY = SINA_BASE_URL + "comments/reply.json";
+    public static final String COMMENTS_DESTROY = SINA_BASE_URL + "comments/destroy.json";
+
     // Friendships
     public static final String FRIENDSHIPS_FRIENDS = SINA_BASE_URL + "friendships/friends.json";
     public static final String FRIENDSHIPS_FOLLOWERS = SINA_BASE_URL + "friendships/followers.json";
