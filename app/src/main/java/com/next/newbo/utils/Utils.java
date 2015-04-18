@@ -8,6 +8,8 @@ import android.os.Build;
 import android.view.Display;
 import android.view.WindowManager;
 
+import com.next.newbo.ui.activity.MainActivity;
+
 /**
  * Created by NeXT on 15-3-31.
  */
@@ -54,4 +56,8 @@ public class Utils {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP;
     }
 
+    public static void clearOnGoingUnreadCount(Context context) {
+        Settings setting = Settings.getInstance(context);
+        setting.putString(Settings.NOTIFICATIN_ONGOING, "");
+    }
 }

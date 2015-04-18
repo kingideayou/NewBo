@@ -286,7 +286,7 @@ public class MainActivity extends BaseActivity implements FeedAdapter.OnFeedItem
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            //TODO 清除红点
+            Utils.clearOnGoingUnreadCount(MainActivity.this);
             mLastCount = mCache.mMessages.getSize();
             mRefreshing = true;
             if (swipeRefreshLayout != null) {

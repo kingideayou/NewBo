@@ -2,9 +2,12 @@ package com.next.newbo.ui.activity;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.support.v4.view.ViewCompat;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -21,6 +24,7 @@ import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.next.newbo.R;
+import com.next.newbo.cache.comments.StatusCommentApiCache;
 import com.next.newbo.model.MessageModel;
 import com.next.newbo.support.SpannableStringUtils;
 import com.next.newbo.ui.view.HackyTextView;
@@ -31,7 +35,7 @@ import com.next.newbo.ui.view.SendCommentButton;
 
 import butterknife.InjectView;
 
-public class WeiboDetailActivity extends BaseActivity implements SendCommentButton.OnSendClickListener {
+public class WeiboDetailActivity extends BaseActivity implements SendCommentButton.OnSendClickListener, SwipeRefreshLayout.OnRefreshListener {
 
     public static final String ARG_DRAWING_START_LOCATION = "arg_drawing_start_location";
 
@@ -45,20 +49,51 @@ public class WeiboDetailActivity extends BaseActivity implements SendCommentButt
     RecyclerView rvComment;
     @InjectView(R.id.ll_add_comment)
     LinearLayout llAddComment;
+    @InjectView(R.id.swipe_container)
+    SwipeRefreshLayout swipeRefreshLayout;
 
     private MessageModel messageModel;
     private CommentsAdapter commentsAdapter;
+    private LinearLayoutManager linearLayoutManager;
+    private StatusCommentApiCache mCache;
+
     private int drawingStartLocation;
+    private int mLastCount = 0;
+
+    private boolean mRefreshing = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         messageModel = getIntent().getParcelableExtra("msg");
+        AppLogger.i("MessageModel : "+messageModel.toString());
+        mCache = new StatusCommentApiCache(WeiboDetailActivity.this, messageModel.id);
+        mCache.loadFromCache();
+
+        if (mCache.mMessages.getSize() == 0) {
+            new Refresher().execute(true);
+        }
 
         setContentView(R.layout.activity_weibo_detail);
+        initSwipeRefresh();
         setupComments();
         setupSendCommentButton();
+
+        commentsAdapter.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                /*
+                if (!mRefreshing &&
+                        linearLayoutManager.findLastVisibleItemPosition() >= commentsAdapter.getItemCount() - 5 &&
+                        dy > 0) {
+                    new Refresher().execute(false);
+
+
+                }
+                */
+            }
+        });
 
         drawingStartLocation = getIntent().getIntExtra(ARG_DRAWING_START_LOCATION, 0);
         if (savedInstanceState == null) {
@@ -71,6 +106,14 @@ public class WeiboDetailActivity extends BaseActivity implements SendCommentButt
                 }
             });
         }
+    }
+
+
+    private void initSwipeRefresh() {
+        swipeRefreshLayout.setOnRefreshListener(this);
+        swipeRefreshLayout.setColorSchemeResources(android.R.color.holo_blue_bright,
+                android.R.color.holo_green_light, android.R.color.holo_orange_light,
+                android.R.color.holo_red_light);
     }
 
     private void startIntroAnimation() {
@@ -102,11 +145,11 @@ public class WeiboDetailActivity extends BaseActivity implements SendCommentButt
     }
 
     private void setupComments() {
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager = new LinearLayoutManager(this);
         rvComment.setLayoutManager(linearLayoutManager);
         rvComment.setHasFixedSize(true);
 
-        commentsAdapter = new CommentsAdapter(this, messageModel);
+        commentsAdapter = new CommentsAdapter(this, messageModel, mCache.mMessages, rvComment);
         rvComment.setAdapter(commentsAdapter);
         rvComment.setOverScrollMode(View.OVER_SCROLL_NEVER);
         rvComment.setOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -184,4 +227,53 @@ public class WeiboDetailActivity extends BaseActivity implements SendCommentButt
         }
         return true;
     }
+
+    @Override
+    public void onRefresh() {
+        //TODO 刷新数据
+        if(!mRefreshing) {
+            new Refresher().execute(true);
+        }
+    }
+
+    private class Refresher extends AsyncTask<Boolean, Void, Boolean> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            Utils.clearOnGoingUnreadCount(WeiboDetailActivity.this);
+            mLastCount = mCache.mMessages.getSize();
+            mRefreshing = true;
+            if (swipeRefreshLayout != null) {
+                swipeRefreshLayout.setRefreshing(true);
+                swipeRefreshLayout.invalidate();
+            }
+        }
+
+        @Override
+        protected Boolean doInBackground(Boolean... params) {
+            load(params[0]);
+            return params[0];
+        }
+
+        @Override
+        protected void onPostExecute(Boolean result) {
+            super.onPostExecute(result);
+            if (result) {
+                rvComment.stopScroll();
+                commentsAdapter.notifyDataSetChanged();
+                mRefreshing = false;
+                if (swipeRefreshLayout != null) {
+                    swipeRefreshLayout.setRefreshing(false);
+                }
+            }
+        }
+
+    }
+
+    private void load(Boolean param) {
+        mCache.load(param);
+        mCache.cache();
+    }
+
 }

@@ -5,6 +5,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.next.newbo.NewBoApplication;
+import com.next.newbo.api.comments.StatusCommentApi;
+import com.next.newbo.cache.database.tables.StatusCommentTable;
 import com.next.newbo.cache.database.tables.TimeLineTable;
 
 /**
@@ -24,6 +26,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(TimeLineTable.CREATE_TABLE);
+        db.execSQL(StatusCommentTable.CREATE_TABLE);
     }
 
     @Override

@@ -14,11 +14,15 @@ import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.next.newbo.R;
+import com.next.newbo.model.MessageListModel;
 import com.next.newbo.model.MessageModel;
 import com.next.newbo.support.SpannableStringUtils;
 import com.next.newbo.ui.activity.WeiboDetailActivity;
 import com.next.newbo.ui.view.CircleImageView;
 import com.next.newbo.ui.view.HackyTextView;
+import com.next.newbo.utils.AppLogger;
+
+import java.util.ArrayList;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -38,18 +42,47 @@ public class CommentsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     private int avatarSize;
 
     private MessageModel messageModel;
+    private MessageListModel messageListModel;
+    private RecyclerView recyclerView;
+    private RecyclerView.OnScrollListener onScrollListener;
+    private ArrayList<RecyclerView.OnScrollListener> listeners = new ArrayList<>();
 
     private boolean animationsLocked = false;
     private boolean delayEnterAnimation = true;
 
-    public CommentsAdapter(Context context, MessageModel messageModel) {
+    public CommentsAdapter(Context context, MessageModel messageModel,
+                           MessageListModel messageListModel, RecyclerView recyclerView) {
         this.context = context;
         this.messageModel = messageModel;
+        this.messageListModel = messageListModel;
+        this.recyclerView = recyclerView;
         avatarSize = context.getResources().getDimensionPixelSize(R.dimen.comment_avatar_size);
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+
+        onScrollListener = new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                for (RecyclerView.OnScrollListener listener : listeners) {
+                    if (listener != null) {
+                        listener.onScrollStateChanged(recyclerView, newState);
+                    }
+                }
+            }
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                for(RecyclerView.OnScrollListener listener : listeners) {
+                    if (listener != null) {
+                        listener.onScrolled(recyclerView, dx, dy);
+                    }
+                }
+            }
+        };
+        recyclerView.setOnScrollListener(onScrollListener);
+
         if (viewType == TYPE_HEADER) {
             View headerView = LayoutInflater.from(context).inflate(R.layout.item_weibo, viewGroup, false);
             return new HeaderViewHolder(headerView);
@@ -75,6 +108,10 @@ public class CommentsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             MenuViewHolder menuViewHolder = (MenuViewHolder)viewHolder;
         } else {
             CommentViewHolder holder = (CommentViewHolder) viewHolder;
+            holder.tvComment.setText(SpannableStringUtils.getOrigSpan(context, messageListModel.get(position)));
+            String imageUrl = messageListModel.get(position).user.avatar_large;
+            holder.ivAvatar.setImageURI(Uri.parse(imageUrl));
+            /*
             switch (position % 3) {
                 case 0:
                     holder.tvComment.setText("不要走，决战到天亮啊");
@@ -86,6 +123,7 @@ public class CommentsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                     holder.tvComment.setText("你会不会玩啊，专业点！");
                     break;
             }
+            */
         }
     }
 
@@ -126,7 +164,7 @@ public class CommentsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     @Override
     public int getItemCount() {
-        return itemsCount;
+        return messageListModel.getSize();
     }
 
     public void updateItems() {
@@ -147,10 +185,14 @@ public class CommentsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         this.delayEnterAnimation = delayEnterAnimation;
     }
 
+    public void addOnScrollListener(RecyclerView.OnScrollListener listener) {
+        listeners.add(listener);
+    }
+
     public static class CommentViewHolder extends RecyclerView.ViewHolder {
 
         @InjectView(R.id.iv_avatar)
-        CircleImageView ivAvatar;
+        SimpleDraweeView ivAvatar;
         @InjectView(R.id.tv_comment)
         TextView tvComment;
 
