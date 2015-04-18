@@ -64,6 +64,10 @@
             android:name=".ui.activity.TopicActivity"
             android:label="@string/title_activity_topic" >
         </activity>
+        <activity
+            android:name=".ui.activity.InputActivity"
+            android:label="@string/title_activity_input" >
+        </activity>
     </application>
 
 </manifest>

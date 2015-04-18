@@ -2,6 +2,7 @@ package com.next.newbo.ui.activity;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -209,6 +210,11 @@ public class WeiboDetailActivity extends BaseActivity implements SendCommentButt
 
     @Override
     public void onSendClickListener(View v) {
+
+        //跳转
+        Intent intent = new Intent(WeiboDetailActivity.this, InputActivity.class);
+        startActivity(intent);
+
         if (validateComment()){
             commentsAdapter.addItem();
             commentsAdapter.setAnimationsLocked(false);

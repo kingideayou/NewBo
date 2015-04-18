@@ -158,7 +158,7 @@ public class ReminderService extends IntentService{
 
     private int getDefaultsModels(Context context) {
         Settings settings = Settings.getInstance(context);
-        return (settings.getBoolean(Settings.NOTIFICATIN_ONGOING, true) ? Notification.DEFAULT_SOUND : 0) |
+        return (settings.getBoolean(Settings.NOTIFICATIN_SOUND, true) ? Notification.DEFAULT_SOUND : 0) |
                 (settings.getBoolean(Settings.NOTIFICATIN_VIBRATE, true) ? Notification.DEFAULT_VIBRATE : 0) |
                 Notification.DEFAULT_LIGHTS;
     }
