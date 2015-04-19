@@ -68,6 +68,10 @@
             android:name=".ui.activity.InputActivity"
             android:label="@string/title_activity_input" >
         </activity>
+        <activity
+            android:name=".ui.activity.CommentActivity"
+            android:label="@string/title_activity_comment_action" >
+        </activity>
     </application>
 
 </manifest>

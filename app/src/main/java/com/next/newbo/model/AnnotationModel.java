@@ -9,7 +9,7 @@ import android.os.Parcelable;
 public class AnnotationModel implements Parcelable {
 
     //TODO BL_VERSION ???
-    public String bl_version = "";
+    public String newbo_version = "";
 
     @Override
     public int describeContents() {
@@ -18,7 +18,7 @@ public class AnnotationModel implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(bl_version);
+        parcel.writeString(newbo_version);
     }
 
     public static final Creator<AnnotationModel> CREATOR = new Creator<AnnotationModel>() {
@@ -26,7 +26,7 @@ public class AnnotationModel implements Parcelable {
         @Override
         public AnnotationModel createFromParcel(Parcel parcel) {
             AnnotationModel annotationModel = new AnnotationModel();
-            annotationModel.bl_version = parcel.readString();
+            annotationModel.newbo_version = parcel.readString();
             return annotationModel;
         }
 

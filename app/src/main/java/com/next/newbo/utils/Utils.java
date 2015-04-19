@@ -10,6 +10,8 @@ import android.view.WindowManager;
 
 import com.next.newbo.ui.activity.MainActivity;
 
+import java.lang.reflect.Method;
+
 /**
  * Created by NeXT on 15-3-31.
  */
@@ -60,4 +62,24 @@ public class Utils {
         Settings setting = Settings.getInstance(context);
         setting.putString(Settings.NOTIFICATIN_ONGOING, "");
     }
+
+    // SmartBar Support
+    public static boolean hasSmartBar() {
+        try {
+            Method method = Class.forName("android.os.Build").getMethod("hasSmartBar");
+            return ((Boolean) method.invoke(null)).booleanValue();
+        } catch (Exception e) {
+        }
+
+        //TODO MX4 Pro 设备名不确定
+        if (Build.DEVICE.equals("mx4") || Build.DEVICE.equals("mx4 pro") ||
+                Build.DEVICE.equals("mx2") || Build.DEVICE.equals("mx3")) {
+            return true;
+        } else if (Build.DEVICE.equals("mx") || Build.DEVICE.equals("m9")) {
+            return false;
+        }
+
+        return false;
+    }
+
 }

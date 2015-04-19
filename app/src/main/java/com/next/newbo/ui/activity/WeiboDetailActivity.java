@@ -212,7 +212,8 @@ public class WeiboDetailActivity extends BaseActivity implements SendCommentButt
     public void onSendClickListener(View v) {
 
         //跳转
-        Intent intent = new Intent(WeiboDetailActivity.this, InputActivity.class);
+        Intent intent = new Intent(WeiboDetailActivity.this, CommentActivity.class);
+        intent.putExtra("msg", messageModel);
         startActivity(intent);
 
         if (validateComment()){

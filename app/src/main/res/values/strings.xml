@@ -50,5 +50,10 @@
     <string name="title_activity_user_time_line">UserTimeLIneActivity</string>
     <string name="title_activity_topic">TopicActivity</string>
     <string name="title_activity_input">InputActivity</string>
+    <string name="action_send">发送</string>
+    <string name="message_say_some_word">说点什么吧</string>
+    <string name="message_please_wait">请稍后……</string>
+    <string name="message_try_again">发送失败，请重试</string>
+    <string name="title_activity_comment_action">CommentAction</string>
 
 </resources>

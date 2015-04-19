@@ -23,7 +23,6 @@ import android.widget.TextView;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.gson.Gson;
 import com.next.newbo.R;
-import com.next.newbo.model.CommentModel;
 import com.next.newbo.model.MessageListModel;
 import com.next.newbo.model.MessageModel;
 import com.next.newbo.support.HackyMovementMethod;
@@ -32,7 +31,6 @@ import com.next.newbo.ui.activity.WeiboDetailActivity;
 import com.next.newbo.ui.view.HackyTextView;
 import com.next.newbo.utils.AppLogger;
 import com.next.newbo.utils.Utils;
-import com.next.newbo.ui.view.CircleImageView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -157,6 +155,7 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_comment:
+                AppLogger.i("comment click");
                 if(onFeedItemClickListener != null){
                     onFeedItemClickListener.onCommentsClick(view, (Integer)view.getTag());
                 }
@@ -196,6 +195,8 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
             if (messageModel == null ) {
                 return ;
             }
+            AppLogger.i("MessageModel : " + messageModel.toString());
+
             //TODO 跳转到详情页
             Intent intent = new Intent(mContext, WeiboDetailActivity.class);
             intent.setAction(Intent.ACTION_MAIN);
