@@ -268,10 +268,6 @@ public class WeiboDetailActivity extends BaseActivity implements SendCommentButt
             super.onPostExecute(result);
             if (result) {
                 rvComment.stopScroll();
-                //TODO 更新视图
-                if (mCache.mMessages.getSize() <= 0) {
-                    mCache.mMessages.addMessage(true, messageModel);
-                }
                 commentsAdapter.notifyDataSetChanged();
                 mRefreshing = false;
                 if (swipeRefreshLayout != null) {

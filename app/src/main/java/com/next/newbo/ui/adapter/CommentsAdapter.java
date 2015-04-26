@@ -6,7 +6,6 @@ import android.content.Context;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
@@ -17,10 +16,7 @@ import com.next.newbo.R;
 import com.next.newbo.model.MessageListModel;
 import com.next.newbo.model.MessageModel;
 import com.next.newbo.support.SpannableStringUtils;
-import com.next.newbo.ui.activity.WeiboDetailActivity;
-import com.next.newbo.ui.view.CircleImageView;
 import com.next.newbo.ui.view.HackyTextView;
-import com.next.newbo.utils.AppLogger;
 
 import java.util.ArrayList;
 

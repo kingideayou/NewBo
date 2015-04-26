@@ -212,7 +212,6 @@ public class MainActivity extends BaseActivity implements FeedAdapter.OnFeedItem
 
     @Override
     public void onCommentsClick(View v, int position) {
-        AppLogger.i("onCommentsClic");
         dismissFeedMenu();
         Intent commentIntent = new Intent(MainActivity.this, WeiboDetailActivity.class);
         int[] startingLocation = new int[2];
@@ -245,6 +244,19 @@ public class MainActivity extends BaseActivity implements FeedAdapter.OnFeedItem
     @Override
     public void onContentClick(View v, int position) {
         dismissFeedMenu();
+    }
+
+    @Override
+    public void onCardClick(View v, int position) {
+        dismissFeedMenu();
+        Intent commentIntent = new Intent(MainActivity.this, WeiboDetailActivity.class);
+        int[] startingLocation = new int[2];
+        v.getLocationOnScreen(startingLocation);
+        AppLogger.i(" --------- " + mCache.mMessages.get(position).toString());
+        commentIntent.putExtra("msg", mCache.mMessages.get(position));
+        commentIntent.putExtra(WeiboDetailActivity.ARG_DRAWING_START_LOCATION, startingLocation[1]);
+        startActivity(commentIntent);
+        overridePendingTransition(0, 0);
     }
 
     @Override

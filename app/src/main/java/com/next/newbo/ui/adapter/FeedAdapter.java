@@ -174,13 +174,11 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
                 if(onFeedItemClickListener != null){
                     onFeedItemClickListener.onContentClick(view, (Integer) view.getTag());
                 }
-                toWeiboDetailPage(view);
                 break;
             case R.id.card_view:
                 if(onFeedItemClickListener != null){
-                    onFeedItemClickListener.onContentClick(view, (Integer)view.getTag());
+                    onFeedItemClickListener.onCardClick(view, (Integer)view.getTag());
                 }
-                toWeiboDetailPage(view);
                 break;
             case R.id.iv_star:
                 FeedViewHolder viewHolder = (FeedViewHolder) view.getTag();
@@ -201,6 +199,10 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
             Intent intent = new Intent(mContext, WeiboDetailActivity.class);
             intent.setAction(Intent.ACTION_MAIN);
             intent.putExtra("msg", messageModel);
+
+            int[] startingLocation = new int[2];
+            view.getLocationOnScreen(startingLocation);
+            intent.putExtra(WeiboDetailActivity.ARG_DRAWING_START_LOCATION, startingLocation[1]);
 
             //TODO 目前动画效果只支持 5.0
             ActivityOptionsCompat o =
@@ -268,6 +270,7 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
         public void onMoreClick(View v, int position);
         public void onTranspondClick(View v, int position);
         public void onContentClick(View v, int position);
+        public void onCardClick(View v, int position);
 
     }
 
