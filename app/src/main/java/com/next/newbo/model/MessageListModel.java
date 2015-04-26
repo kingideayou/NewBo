@@ -69,6 +69,14 @@ public class MessageListModel extends BaseListModel<MessageModel, MessageListMod
         return statuses;
     }
 
+    public void addMessage(boolean toTop, MessageModel messageModel) {
+        if (toTop) {
+            statuses.add(0, messageModel);
+        } else {
+            statuses.add(statuses.size(), messageModel);
+        }
+    }
+
     @Override
     public void addAll(boolean toTop, MessageListModel values) {
         addAll(toTop, false, values, null);

@@ -57,11 +57,11 @@ public class CommentsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         this.messageListModel = messageListModel;
         this.recyclerView = recyclerView;
         avatarSize = context.getResources().getDimensionPixelSize(R.dimen.comment_avatar_size);
+
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
-
         onScrollListener = new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
@@ -82,7 +82,6 @@ public class CommentsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             }
         };
         recyclerView.setOnScrollListener(onScrollListener);
-
         if (viewType == TYPE_HEADER) {
             View headerView = LayoutInflater.from(context).inflate(R.layout.item_weibo, viewGroup, false);
             return new HeaderViewHolder(headerView);
@@ -164,7 +163,7 @@ public class CommentsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     @Override
     public int getItemCount() {
-        return messageListModel.getSize();
+        return messageListModel.getSize() == 0 ? 1 : messageListModel.getSize();
     }
 
     public void updateItems() {
@@ -190,7 +189,6 @@ public class CommentsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     }
 
     public static class CommentViewHolder extends RecyclerView.ViewHolder {
-
         @InjectView(R.id.iv_avatar)
         SimpleDraweeView ivAvatar;
         @InjectView(R.id.tv_comment)
@@ -203,7 +201,6 @@ public class CommentsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     }
 
     public static class HeaderViewHolder extends RecyclerView.ViewHolder {
-
         @InjectView(R.id.iv_avatar)
         SimpleDraweeView ivAvatar;
         @InjectView(R.id.tv_content)
@@ -218,7 +215,6 @@ public class CommentsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     }
 
     public static class MenuViewHolder extends RecyclerView.ViewHolder {
-
         @InjectView(R.id.tv_repost)
         TextView tvRepost;
         @InjectView(R.id.tv_comment)
