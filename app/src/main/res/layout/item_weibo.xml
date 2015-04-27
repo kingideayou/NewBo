@@ -61,34 +61,45 @@
         android:id="@+id/grid_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:columnCount="3"
+        android:orientation="horizontal"
+        android:useDefaultMargins="false"
+        android:clickable="false"
         android:visibility="gone">
 
-        <com.next.newbo.ui.view.MultiPicturesChildImageView
-            style="@style/listViewMultiImageView" />
+        <com.facebook.drawee.view.SimpleDraweeView
+            style="@style/listViewMultiImageView"/>
 
-        <com.next.newbo.ui.view.MultiPicturesChildImageView
-            style="@style/listViewMultiImageView" />
+        <com.facebook.drawee.view.SimpleDraweeView
+            style="@style/listViewMultiImageView"/>
 
-        <com.next.newbo.ui.view.MultiPicturesChildImageView
-            style="@style/listViewMultiImageView" />
+        <com.facebook.drawee.view.SimpleDraweeView
+            style="@style/listViewMultiImageView"/>
 
-        <com.next.newbo.ui.view.MultiPicturesChildImageView
-            style="@style/listViewMultiImageView" />
+        <com.facebook.drawee.view.SimpleDraweeView
+            style="@style/listViewMultiImageView"/>
 
-        <com.next.newbo.ui.view.MultiPicturesChildImageView
-            style="@style/listViewMultiImageView" />
+        <com.facebook.drawee.view.SimpleDraweeView
+            style="@style/listViewMultiImageView"/>
 
-        <com.next.newbo.ui.view.MultiPicturesChildImageView
-            style="@style/listViewMultiImageView" />
+        <com.facebook.drawee.view.SimpleDraweeView
+            style="@style/listViewMultiImageView"/>
 
-        <com.next.newbo.ui.view.MultiPicturesChildImageView
-            style="@style/listViewMultiImageView" />
+        <com.facebook.drawee.view.SimpleDraweeView
+            style="@style/listViewMultiImageView"/>
 
-        <com.next.newbo.ui.view.MultiPicturesChildImageView
-            style="@style/listViewMultiImageView" />
+        <com.facebook.drawee.view.SimpleDraweeView
+            style="@style/listViewMultiImageView"/>
 
+        <com.facebook.drawee.view.SimpleDraweeView
+            style="@style/listViewMultiImageView"/>
+
+        <!--
         <com.next.newbo.ui.view.MultiPicturesChildImageView
             style="@style/listViewMultiImageView" />
+        -->
 
     </GridLayout>
 

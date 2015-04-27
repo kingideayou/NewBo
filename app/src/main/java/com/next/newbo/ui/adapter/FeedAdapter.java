@@ -8,8 +8,6 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.text.Spannable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +19,6 @@ import android.widget.TextSwitcher;
 import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.google.gson.Gson;
 import com.next.newbo.R;
 import com.next.newbo.model.MessageListModel;
 import com.next.newbo.model.MessageModel;
@@ -124,6 +121,80 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
                 messageModel.user != null ? messageModel.user.getName() : "");
         feedViewHolder.tvContent.setText(SpannableStringUtils.getSpan(mContext, messageModel));
         feedViewHolder.ivAvatar.setImageURI(Uri.parse(messageModel.user.avatar_large));
+        if(messageModel.hasMultiplePictures()) {
+            buildMultiPic(messageModel, feedViewHolder.gridMain);
+        } else {
+            feedViewHolder.gridMain.setVisibility(View.GONE);
+        }
+    }
+
+    private void buildMultiPic(MessageModel messageModel, GridLayout gridLayout) {
+        //TODO 判断设置是否显示图片
+        gridLayout.setVisibility(View.VISIBLE);
+        ArrayList<MessageModel.PictureUrl> urls = messageModel.pic_urls;
+
+        for (int i = 0; i < urls.size(); i++) {
+            SimpleDraweeView pic = (SimpleDraweeView) gridLayout.getChildAt(i);
+            pic.setImageURI(Uri.parse(urls.get(i).getLarge()));
+            //TODO 判断设置显示高清图还是普通图
+//            pic.setImageURI(Uri.parse(urls.get(i).getThumbnail()));
+        }
+
+        if (urls.size() < 9) {
+            SimpleDraweeView pic;
+            switch (urls.size()) {
+                case 8:
+                    pic = (SimpleDraweeView) gridLayout.getChildAt(8);
+                    pic.setVisibility(View.INVISIBLE);
+                    break;
+                case 7:
+                    for (int i = 8; i > 6; i--) {
+                        pic = (SimpleDraweeView) gridLayout.getChildAt(i);
+                        pic.setVisibility(View.INVISIBLE);
+                    }
+                    break;
+                case 6:
+                    for (int i = 8; i > 5; i--) {
+                        pic = (SimpleDraweeView) gridLayout.getChildAt(i);
+                        pic.setVisibility(View.GONE);
+                    }
+                    break;
+                case 5:
+                    for (int i = 8; i > 5; i--) {
+                        pic = (SimpleDraweeView) gridLayout.getChildAt(i);
+                        pic.setVisibility(View.GONE);
+                    }
+                    pic = (SimpleDraweeView) gridLayout.getChildAt(5);
+                    pic.setVisibility(View.INVISIBLE);
+                    pic = (SimpleDraweeView) gridLayout.getChildAt(4);
+                    pic.setVisibility(View.INVISIBLE);
+                    break;
+                case 4:
+                    for (int i = 8; i > 5; i--) {
+                        pic = (SimpleDraweeView) gridLayout.getChildAt(i);
+                        pic.setVisibility(View.GONE);
+                    }
+                    pic = (SimpleDraweeView) gridLayout.getChildAt(5);
+                    pic.setVisibility(View.INVISIBLE);
+                    pic = (SimpleDraweeView) gridLayout.getChildAt(4);
+                    pic.setVisibility(View.INVISIBLE);
+                    break;
+                case 3:
+                    for (int i = 8; i > 2; i--) {
+                        pic = (SimpleDraweeView) gridLayout.getChildAt(i);
+                        pic.setVisibility(View.GONE);
+                    }
+                    break;
+                case 2:
+                    for (int i = 8; i > 2; i--) {
+                        pic = (SimpleDraweeView) gridLayout.getChildAt(i);
+                        pic.setVisibility(View.GONE);
+                    }
+                    pic = (SimpleDraweeView) gridLayout.getChildAt(2);
+                    pic.setVisibility(View.INVISIBLE);
+                    break;
+            }
+        }
     }
 
     private void runEnterAnimation(View itemView, int position) {

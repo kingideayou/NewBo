@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
+import android.widget.GridLayout;
 import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -99,6 +100,9 @@ public class CommentsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                     messageModel.user != null ? messageModel.user.getName() : "");
             headerViewHolder.tvContent.setText(SpannableStringUtils.getSpan(context, messageModel));
             headerViewHolder.ivAvatar.setImageURI(Uri.parse(messageModel.user.avatar_large));
+            if(messageModel.hasMultiplePictures()) {
+                buildMultiPic(messageModel, headerViewHolder.gridMain);
+            }
         } else if(getItemViewType(position) == TYPE_MENU) {
             MenuViewHolder menuViewHolder = (MenuViewHolder)viewHolder;
         } else {
@@ -119,6 +123,75 @@ public class CommentsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                     break;
             }
             */
+        }
+    }
+
+    private void buildMultiPic(MessageModel messageModel, GridLayout gridLayout) {
+        //TODO 判断设置是否显示图片
+        gridLayout.setVisibility(View.VISIBLE);
+        ArrayList<MessageModel.PictureUrl> urls = messageModel.pic_urls;
+
+        for (int i = 0; i < urls.size(); i++) {
+            SimpleDraweeView pic = (SimpleDraweeView) gridLayout.getChildAt(i);
+            pic.setImageURI(Uri.parse(urls.get(i).getLarge()));
+            //TODO 判断设置显示高清图还是普通图
+//            pic.setImageURI(Uri.parse(urls.get(i).getThumbnail()));
+        }
+
+        if (urls.size() < 9) {
+            SimpleDraweeView pic;
+            switch (urls.size()) {
+                case 8:
+                    pic = (SimpleDraweeView) gridLayout.getChildAt(8);
+                    pic.setVisibility(View.INVISIBLE);
+                    break;
+                case 7:
+                    for (int i = 8; i > 6; i--) {
+                        pic = (SimpleDraweeView) gridLayout.getChildAt(i);
+                        pic.setVisibility(View.INVISIBLE);
+                    }
+                    break;
+                case 6:
+                    for (int i = 8; i > 5; i--) {
+                        pic = (SimpleDraweeView) gridLayout.getChildAt(i);
+                        pic.setVisibility(View.GONE);
+                    }
+                    break;
+                case 5:
+                    for (int i = 8; i > 5; i--) {
+                        pic = (SimpleDraweeView) gridLayout.getChildAt(i);
+                        pic.setVisibility(View.GONE);
+                    }
+                    pic = (SimpleDraweeView) gridLayout.getChildAt(5);
+                    pic.setVisibility(View.INVISIBLE);
+                    pic = (SimpleDraweeView) gridLayout.getChildAt(4);
+                    pic.setVisibility(View.INVISIBLE);
+                    break;
+                case 4:
+                    for (int i = 8; i > 5; i--) {
+                        pic = (SimpleDraweeView) gridLayout.getChildAt(i);
+                        pic.setVisibility(View.GONE);
+                    }
+                    pic = (SimpleDraweeView) gridLayout.getChildAt(5);
+                    pic.setVisibility(View.INVISIBLE);
+                    pic = (SimpleDraweeView) gridLayout.getChildAt(4);
+                    pic.setVisibility(View.INVISIBLE);
+                    break;
+                case 3:
+                    for (int i = 8; i > 2; i--) {
+                        pic = (SimpleDraweeView) gridLayout.getChildAt(i);
+                        pic.setVisibility(View.GONE);
+                    }
+                    break;
+                case 2:
+                    for (int i = 8; i > 2; i--) {
+                        pic = (SimpleDraweeView) gridLayout.getChildAt(i);
+                        pic.setVisibility(View.GONE);
+                    }
+                    pic = (SimpleDraweeView) gridLayout.getChildAt(2);
+                    pic.setVisibility(View.INVISIBLE);
+                    break;
+            }
         }
     }
 
@@ -203,6 +276,8 @@ public class CommentsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         HackyTextView tvContent;
         @InjectView(R.id.tv_nickname)
         TextView tvNickName;
+        @InjectView(R.id.grid_main)
+        GridLayout gridMain;
 
         public HeaderViewHolder(View itemView) {
             super(itemView);
