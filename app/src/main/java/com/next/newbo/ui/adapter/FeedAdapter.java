@@ -140,9 +140,15 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
 //            pic.setImageURI(Uri.parse(urls.get(i).getThumbnail()));
         }
 
-        if (urls.size() < 9) {
+        if (urls.size() <= 9) {
             SimpleDraweeView pic;
             switch (urls.size()) {
+                case 9:
+                    for (int i = 0; i < urls.size(); i++) {
+                        pic = (SimpleDraweeView) gridLayout.getChildAt(i);
+                        pic.setVisibility(View.VISIBLE);
+                    }
+                    break;
                 case 8:
                     pic = (SimpleDraweeView) gridLayout.getChildAt(8);
                     pic.setVisibility(View.INVISIBLE);
@@ -165,8 +171,6 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
                         pic.setVisibility(View.GONE);
                     }
                     pic = (SimpleDraweeView) gridLayout.getChildAt(5);
-                    pic.setVisibility(View.INVISIBLE);
-                    pic = (SimpleDraweeView) gridLayout.getChildAt(4);
                     pic.setVisibility(View.INVISIBLE);
                     break;
                 case 4:
