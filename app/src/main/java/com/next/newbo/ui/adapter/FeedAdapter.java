@@ -41,6 +41,9 @@ import butterknife.InjectView;
  */
 public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements View.OnClickListener {
 
+    private static final int TYPE_NORMAL = 1;
+    private static final int TYPE_REPOST = 2;
+
     private Context mContext;
     private boolean animateItems = false;
     private int lastAnimatedPosition = -1;
@@ -100,8 +103,17 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
     }
 
     @Override
+    public int getItemViewType(int position) {
+        if (messageList.get(position).retweeted_status != null) {
+            return TYPE_REPOST;
+        } else {
+            return TYPE_NORMAL;
+        }
+    }
+
+    @Override
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
-        runEnterAnimation(viewHolder.itemView, position);
+//        runEnterAnimation(viewHolder.itemView, position);
         FeedViewHolder feedViewHolder = (FeedViewHolder) viewHolder;
         feedViewHolder.ivAvatar.setImageResource(R.mipmap.ic_launcher);
 
@@ -122,7 +134,7 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
         feedViewHolder.tvContent.setText(SpannableStringUtils.getSpan(mContext, messageModel));
         feedViewHolder.ivAvatar.setImageURI(Uri.parse(messageModel.user.avatar_large));
 
-        if (messageModel.retweeted_status != null) {
+        if (getItemCount() == TYPE_REPOST) {
             //TODO
             feedViewHolder.verticalLine.setVisibility(View.VISIBLE);
             feedViewHolder.tvRepostComment.setVisibility(View.VISIBLE);
