@@ -118,6 +118,12 @@ public class SpannableStringUtils {
         return msg.span;
     }
 
+    /**
+     * 获取含转发用户信息的 SpannableString
+     * @param context
+     * @param orig
+     * @return
+     */
     public static SpannableString getOrigSpan(Context context, MessageModel orig) {
         if (orig.origSpan == null) {
 

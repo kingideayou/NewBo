@@ -121,6 +121,23 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
                 messageModel.user != null ? messageModel.user.getName() : "");
         feedViewHolder.tvContent.setText(SpannableStringUtils.getSpan(mContext, messageModel));
         feedViewHolder.ivAvatar.setImageURI(Uri.parse(messageModel.user.avatar_large));
+
+        if (messageModel.retweeted_status != null) {
+            //TODO
+            feedViewHolder.verticalLine.setVisibility(View.VISIBLE);
+            feedViewHolder.tvRepostComment.setVisibility(View.VISIBLE);
+            feedViewHolder.tvRepostComment.setText(SpannableStringUtils.getOrigSpan(
+                    mContext, messageModel.retweeted_status));
+            canShowMultiImage(feedViewHolder, messageModel.retweeted_status);
+        } else {
+            feedViewHolder.verticalLine.setVisibility(View.GONE);
+            feedViewHolder.tvRepostComment.setVisibility(View.GONE);
+            canShowMultiImage(feedViewHolder, messageModel);
+        }
+
+    }
+
+    private void canShowMultiImage(FeedViewHolder feedViewHolder, MessageModel messageModel) {
         if(messageModel.hasMultiplePictures()) {
             buildMultiPic(messageModel, feedViewHolder.gridMain);
         } else {
@@ -328,6 +345,10 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
         TextSwitcher tsLikesCounter;
         @InjectView(R.id.tv_content)
         HackyTextView tvContent;
+        @InjectView(R.id.tv_repost_content)
+        HackyTextView tvRepostComment;
+        @InjectView(R.id.vertical_line)
+        View verticalLine;
 
         public FeedViewHolder(View view) {
             super(view);

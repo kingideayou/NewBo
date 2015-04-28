@@ -57,59 +57,88 @@
         tools:text="没有一点点防备，也没有一丝顾虑，你就这样出现，在我的世界里..."
         />
 
-    <GridLayout
-        android:id="@+id/grid_main"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginStart="@dimen/activity_horizontal_margin"
-        android:columnCount="3"
-        android:orientation="horizontal"
-        android:useDefaultMargins="false"
-        android:clickable="false"
-        android:visibility="gone">
+        android:layout_height="wrap_content">
 
-        <com.facebook.drawee.view.SimpleDraweeView
-            fresco:placeholderImage="@color/selector_gray"
-            style="@style/listViewMultiImageView"/>
+        <View
+            android:id="@+id/vertical_line"
+            android:layout_width="0dp"
+            android:visibility="gone"
+            android:layout_height="match_parent"
+            android:layout_marginStart="16dp"/>
 
-        <com.facebook.drawee.view.SimpleDraweeView
-            fresco:placeholderImage="@color/selector_gray"
-            style="@style/listViewMultiImageView"/>
+        <com.next.newbo.ui.view.HackyTextView
+            android:id="@+id/tv_repost_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/vertical_line"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:textSize="@dimen/text_big_size"
+            android:lineSpacingExtra="4dp"
+            tools:text="没有一点点防备，也没有一丝顾虑，你就这样出现，在我的世界里..."
+            tools:ignore="RtlHardcoded" />
 
-        <com.facebook.drawee.view.SimpleDraweeView
-            fresco:placeholderImage="@color/selector_gray"
-            style="@style/listViewMultiImageView"/>
+        <GridLayout
+            android:id="@+id/grid_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_repost_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_toRightOf="@+id/vertical_line"
+            android:columnCount="3"
+            android:orientation="horizontal"
+            android:useDefaultMargins="false"
+            android:clickable="false"
+            android:visibility="gone"
+            tools:ignore="RtlHardcoded">
 
-        <com.facebook.drawee.view.SimpleDraweeView
-            fresco:placeholderImage="@color/selector_gray"
-            style="@style/listViewMultiImageView"/>
+            <com.facebook.drawee.view.SimpleDraweeView
+                fresco:placeholderImage="@color/selector_gray"
+                style="@style/listViewMultiImageView"/>
 
-        <com.facebook.drawee.view.SimpleDraweeView
-            fresco:placeholderImage="@color/selector_gray"
-            style="@style/listViewMultiImageView"/>
+            <com.facebook.drawee.view.SimpleDraweeView
+                fresco:placeholderImage="@color/selector_gray"
+                style="@style/listViewMultiImageView"/>
 
-        <com.facebook.drawee.view.SimpleDraweeView
-            fresco:placeholderImage="@color/selector_gray"
-            style="@style/listViewMultiImageView"/>
+            <com.facebook.drawee.view.SimpleDraweeView
+                fresco:placeholderImage="@color/selector_gray"
+                style="@style/listViewMultiImageView"/>
 
-        <com.facebook.drawee.view.SimpleDraweeView
-            fresco:placeholderImage="@color/selector_gray"
-            style="@style/listViewMultiImageView"/>
+            <com.facebook.drawee.view.SimpleDraweeView
+                fresco:placeholderImage="@color/selector_gray"
+                style="@style/listViewMultiImageView"/>
 
-        <com.facebook.drawee.view.SimpleDraweeView
-            fresco:placeholderImage="@color/selector_gray"
-            style="@style/listViewMultiImageView"/>
+            <com.facebook.drawee.view.SimpleDraweeView
+                fresco:placeholderImage="@color/selector_gray"
+                style="@style/listViewMultiImageView"/>
 
-        <com.facebook.drawee.view.SimpleDraweeView
-            fresco:placeholderImage="@color/selector_gray"
-            style="@style/listViewMultiImageView"/>
+            <com.facebook.drawee.view.SimpleDraweeView
+                fresco:placeholderImage="@color/selector_gray"
+                style="@style/listViewMultiImageView"/>
 
-        <!--
-        <com.next.newbo.ui.view.MultiPicturesChildImageView
-            style="@style/listViewMultiImageView" />
-        -->
+            <com.facebook.drawee.view.SimpleDraweeView
+                fresco:placeholderImage="@color/selector_gray"
+                style="@style/listViewMultiImageView"/>
 
-    </GridLayout>
+            <com.facebook.drawee.view.SimpleDraweeView
+                fresco:placeholderImage="@color/selector_gray"
+                style="@style/listViewMultiImageView"/>
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                fresco:placeholderImage="@color/selector_gray"
+                style="@style/listViewMultiImageView"/>
+
+            <!--
+            <com.next.newbo.ui.view.MultiPicturesChildImageView
+                style="@style/listViewMultiImageView" />
+            -->
+
+        </GridLayout>
+
+    </RelativeLayout>
 
 </LinearLayout>
