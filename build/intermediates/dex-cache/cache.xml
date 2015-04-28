@@ -2,158 +2,158 @@
 <items version="2" >
 
     <item
-        jar="/Users/NeXT/Projects/NewBo/app/build/intermediates/exploded-aar/com.afollestad/material-dialogs/0.7.0.1/classes.jar"
+        jar="/NeXT/MyProjects/NewBo/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.0/classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="02d3f0f0bceb66a826a9daae256c82fc7c117485">
-        <dex dex="/Users/NeXT/Projects/NewBo/app/build/intermediates/pre-dexed/debug/classes-c6c3af8600b2e6442d973585a1b189cbb1b9486d.jar" />
+        sha1="eeebabdfd8203f6ab639ccea4ffa1f20e1adee3a">
+        <dex dex="/NeXT/MyProjects/NewBo/app/build/intermediates/pre-dexed/debug/classes-e07eec10b024415f462229d951f9d54ca1feafe6.jar" />
     </item>
     <item
-        jar="/Users/NeXT/Projects/NewBo/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
-        <dex dex="/Users/NeXT/Projects/NewBo/app/build/intermediates/pre-dexed/debug/classes-4dcb26ea35867af10e2726edd7de09af17776b8e.jar" />
-    </item>
-    <item
-        jar="/Users/NeXT/Projects/NewBo/app/build/intermediates/exploded-aar/com.facebook.fresco/fbcore/0.1.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="fc2b0f606d055d1bb0ac59889be210db89278363">
-        <dex dex="/Users/NeXT/Projects/NewBo/app/build/intermediates/pre-dexed/debug/classes-035f6cb0b92ea08bebe8dd66d71f7ca4ca8b55e9.jar" />
-    </item>
-    <item
-        jar="/Users/NeXT/Projects/NewBo/app/build/intermediates/exploded-aar/com.facebook.fresco/fresco/0.1.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="ac307801bddb76621df8d2d96b5b378a6e615d4b">
-        <dex dex="/Users/NeXT/Projects/NewBo/app/build/intermediates/pre-dexed/debug/classes-14a6de6132c971f727bc7517d8fe28c879da5b53.jar" />
-    </item>
-    <item
-        jar="/Users/NeXT/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.3.1/ecb6e1f8e4b0e84c4b886c2f14a1500caf309757/gson-2.3.1.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
-        <dex dex="/Users/NeXT/Projects/NewBo/app/build/intermediates/pre-dexed/debug/gson-2.3.1-c8c83e619c3551a764f7adfddd0fa2b79a9cfe61.jar" />
-    </item>
-    <item
-        jar="/Users/NeXT/Projects/NewBo/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline/0.1.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="d828c72c628984cbaf8669a500726f0c0e6adb59">
-        <dex dex="/Users/NeXT/Projects/NewBo/app/build/intermediates/pre-dexed/debug/classes-2e0b452c4762228687ad0a7b572777c87fab5971.jar" />
-    </item>
-    <item
-        jar="/Users/NeXT/Projects/NewBo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="d84409890828e07d344a3b9b1da545dba9897b51">
-        <dex dex="/Users/NeXT/Projects/NewBo/app/build/intermediates/pre-dexed/debug/classes-76223d78dd59e1ec6ae8ac7d685cd00446d71f65.jar" />
-    </item>
-    <item
-        jar="/Users/NeXT/Projects/NewBo/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/libs/internal_impl-22.0.0.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
-        <dex dex="/Users/NeXT/Projects/NewBo/app/build/intermediates/pre-dexed/debug/internal_impl-22.0.0-9b23525c255a2eb29571f5dba964e4efbfa55875.jar" />
-    </item>
-    <item
-        jar="/Users/NeXT/Projects/NewBo/app/build/intermediates/exploded-aar/com.facebook.fresco/drawee/0.1.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="d7f8990aabff2a7b5a3b6bcd2a8ea2a1e23c293b">
-        <dex dex="/Users/NeXT/Projects/NewBo/app/build/intermediates/pre-dexed/debug/classes-6ca2458d2a34ab86efc3285bcf1ddd9107c549ad.jar" />
-    </item>
-    <item
-        jar="/Users/NeXT/Projects/NewBo/app/build/intermediates/exploded-aar/com.orhanobut/logger/1.4/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="109f0ec452925b46b500e8d28ee2cd2d1a0145a9">
-        <dex dex="/Users/NeXT/Projects/NewBo/app/build/intermediates/pre-dexed/debug/classes-99cde0e2a15ae000b3d3dc71af992e4d31ba6e7e.jar" />
-    </item>
-    <item
-        jar="/Users/NeXT/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
-        <dex dex="/Users/NeXT/Projects/NewBo/app/build/intermediates/pre-dexed/debug/library-2.4.0-99c14fd91f54b9a38abcb5980c59750a768b4db0.jar" />
-    </item>
-    <item
-        jar="/Users/NeXT/Projects/NewBo/app/build/intermediates/exploded-aar/NewBo/library/unspecified/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="5fce3937e1fd93fde43c4444881f62ded241f80d">
-        <dex dex="/Users/NeXT/Projects/NewBo/app/build/intermediates/pre-dexed/debug/classes-7f0f6543b14199aef7afa6ad52e099de64f37e10.jar" />
-    </item>
-    <item
-        jar="/Users/NeXT/.gradle/caches/modules-2/files-2.1/com.loopj.android/android-async-http/1.4.6/a845a88238be0b5be9d238652c1bc0605ef91f52/android-async-http-1.4.6.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="a845a88238be0b5be9d238652c1bc0605ef91f52">
-        <dex dex="/Users/NeXT/Projects/NewBo/app/build/intermediates/pre-dexed/debug/android-async-http-1.4.6-57fb9bee4fa746d0f967b3d458e3374124db8894.jar" />
-    </item>
-    <item
-        jar="/Users/NeXT/.gradle/caches/modules-2/files-2.1/javax.annotation/javax.annotation-api/1.2/479c1e06db31c432330183f5cae684163f186146/javax.annotation-api-1.2.jar"
+        jar="/Users/gongsh001/.gradle/caches/modules-2/files-2.1/javax.annotation/javax.annotation-api/1.2/479c1e06db31c432330183f5cae684163f186146/javax.annotation-api-1.2.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="479c1e06db31c432330183f5cae684163f186146">
-        <dex dex="/Users/NeXT/Projects/NewBo/app/build/intermediates/pre-dexed/debug/javax.annotation-api-1.2-6082985b2e337907306228dcb2d32bcc59f9f6fd.jar" />
+        <dex dex="/NeXT/MyProjects/NewBo/app/build/intermediates/pre-dexed/debug/javax.annotation-api-1.2-a5e28dff83623d2b8d120a397ed1f1eea663b7d1.jar" />
     </item>
     <item
-        jar="/Users/NeXT/Projects/NewBo/app/build/intermediates/exploded-aar/de.keyboardsurfer.android.widget/crouton/1.8.5/classes.jar"
+        jar="/NeXT/MyProjects/NewBo/app/build/intermediates/exploded-aar/de.keyboardsurfer.android.widget/crouton/1.8.5/classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="b81c788c5f175f94ddaac2f65e5d1726371e0963">
-        <dex dex="/Users/NeXT/Projects/NewBo/app/build/intermediates/pre-dexed/debug/classes-9b65079af19c73f0d299a3d9734e8519295c7291.jar" />
+        <dex dex="/NeXT/MyProjects/NewBo/app/build/intermediates/pre-dexed/debug/classes-57bd0620bc3c3bc8832dd8821d778a89edd4db03.jar" />
     </item>
     <item
-        jar="/Users/NeXT/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife/6.1.0/63735f48b82bcd24cdd33821342428252eb1ca5a/butterknife-6.1.0.jar"
+        jar="/Users/gongsh001/.gradle/caches/modules-2/files-2.1/com.loopj.android/android-async-http/1.4.6/a845a88238be0b5be9d238652c1bc0605ef91f52/android-async-http-1.4.6.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="63735f48b82bcd24cdd33821342428252eb1ca5a">
-        <dex dex="/Users/NeXT/Projects/NewBo/app/build/intermediates/pre-dexed/debug/butterknife-6.1.0-5c9677ea0783b258e19e1e25734b3ef41313080a.jar" />
+        sha1="a845a88238be0b5be9d238652c1bc0605ef91f52">
+        <dex dex="/NeXT/MyProjects/NewBo/app/build/intermediates/pre-dexed/debug/android-async-http-1.4.6-797a2038ab7b0284e16925d2708bbc376b69ea12.jar" />
     </item>
     <item
-        jar="/Users/NeXT/Projects/NewBo/app/build/intermediates/exploded-aar/com.github.navasmdc/MaterialDesign/1.4/classes.jar"
+        jar="/NeXT/MyProjects/NewBo/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline/0.1.0/classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="87405405e403de68f4057757b8a2e8de02bd65d0">
-        <dex dex="/Users/NeXT/Projects/NewBo/app/build/intermediates/pre-dexed/debug/classes-284e4a6e5331845cf6dfbd5159685956fd876470.jar" />
+        sha1="d828c72c628984cbaf8669a500726f0c0e6adb59">
+        <dex dex="/NeXT/MyProjects/NewBo/app/build/intermediates/pre-dexed/debug/classes-bfecbde187bfdf122fa64706c619df1739c6d1ad.jar" />
     </item>
     <item
-        jar="/Users/NeXT/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.0.0/support-annotations-22.0.0.jar"
+        jar="/NeXT/MyProjects/NewBo/app/build/intermediates/exploded-aar/com.facebook.fresco/drawee/0.1.0/classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
-        <dex dex="/Users/NeXT/Projects/NewBo/app/build/intermediates/pre-dexed/debug/support-annotations-22.0.0-ecf4e45a54737e24bb68f1460394ec07473f4cab.jar" />
+        sha1="d7f8990aabff2a7b5a3b6bcd2a8ea2a1e23c293b">
+        <dex dex="/NeXT/MyProjects/NewBo/app/build/intermediates/pre-dexed/debug/classes-3e776af9140ebdc4d829d712d04573b5e201d087.jar" />
     </item>
     <item
-        jar="/Users/NeXT/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.1.4/129874135e6081269ace2312092031558865de12/bolts-android-1.1.4.jar"
+        jar="/NeXT/MyProjects/NewBo/app/build/intermediates/exploded-aar/NewBo/library/unspecified/classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="129874135e6081269ace2312092031558865de12">
-        <dex dex="/Users/NeXT/Projects/NewBo/app/build/intermediates/pre-dexed/debug/bolts-android-1.1.4-154e11d42bfec9780fa45b7c188e8596abf06e90.jar" />
+        sha1="60d3dd1fc051afeec062f03a22700c3ab4045adc">
+        <dex dex="/NeXT/MyProjects/NewBo/app/build/intermediates/pre-dexed/debug/classes-a08f1aefad5df6ee12428656620d675fac2101f8.jar" />
     </item>
     <item
-        jar="/Users/NeXT/Projects/NewBo/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/22.0.0/classes.jar"
+        jar="/NeXT/MyProjects/NewBo/app/build/intermediates/exploded-aar/com.orhanobut/logger/1.4/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="109f0ec452925b46b500e8d28ee2cd2d1a0145a9">
+        <dex dex="/NeXT/MyProjects/NewBo/app/build/intermediates/pre-dexed/debug/classes-1ca5f742ce86ba0b1b6a508f226531f899c0adca.jar" />
+    </item>
+    <item
+        jar="/NeXT/MyProjects/NewBo/app/build/intermediates/exploded-aar/com.facebook.fresco/fresco/0.1.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="ac307801bddb76621df8d2d96b5b378a6e615d4b">
+        <dex dex="/NeXT/MyProjects/NewBo/app/build/intermediates/pre-dexed/debug/classes-1ec61467bfd798aa2e9e486c9635ff01cf256ace.jar" />
+    </item>
+    <item
+        jar="/NeXT/NeXT/android_sudio_sdk/android-sdk-macosx/extras/android/m2repository/com/android/support/support-annotations/22.1.0/support-annotations-22.1.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="281bc6c58ecb3644c23fbc5ee0452019f67b4d5d">
+        <dex dex="/NeXT/MyProjects/NewBo/app/build/intermediates/pre-dexed/debug/support-annotations-22.1.0-5525fcef6d539dc6de50664401082115af1dd323.jar" />
+    </item>
+    <item
+        jar="/Users/gongsh001/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="/NeXT/MyProjects/NewBo/app/build/intermediates/pre-dexed/debug/library-2.4.0-7fe680b80381f1f060cb837705572558fd3d9527.jar" />
+    </item>
+    <item
+        jar="/NeXT/MyProjects/NewBo/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/22.0.0/classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="c6d79137693d494dee16372d3921f919eb724ced">
-        <dex dex="/Users/NeXT/Projects/NewBo/app/build/intermediates/pre-dexed/debug/classes-e399c392072300a35cb03d9b2828af399e9bdb0b.jar" />
+        <dex dex="/NeXT/MyProjects/NewBo/app/build/intermediates/pre-dexed/debug/classes-8f6e003e719c221a1bd4f590797dd0f60e133e41.jar" />
     </item>
     <item
-        jar="/Users/NeXT/Projects/NewBo/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/21.0.3/classes.jar"
+        jar="/Users/gongsh001/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife/6.1.0/63735f48b82bcd24cdd33821342428252eb1ca5a/butterknife-6.1.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="63735f48b82bcd24cdd33821342428252eb1ca5a">
+        <dex dex="/NeXT/MyProjects/NewBo/app/build/intermediates/pre-dexed/debug/butterknife-6.1.0-03e93f2b22064f015e2d81757505ce30e506de91.jar" />
+    </item>
+    <item
+        jar="/NeXT/MyProjects/NewBo/app/build/intermediates/exploded-aar/com.afollestad/material-dialogs/0.7.0.1/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="02d3f0f0bceb66a826a9daae256c82fc7c117485">
+        <dex dex="/NeXT/MyProjects/NewBo/app/build/intermediates/pre-dexed/debug/classes-a91cfb726b6c2783e65ba0c01ec12ac24720afd1.jar" />
+    </item>
+    <item
+        jar="/NeXT/MyProjects/NewBo/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.0/libs/internal_impl-22.1.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="025cb89f2896c63200ff4c2e6c467a95691d880a">
+        <dex dex="/NeXT/MyProjects/NewBo/app/build/intermediates/pre-dexed/debug/internal_impl-22.1.0-232b8b656df66fab2332820d7e212963479a7ce3.jar" />
+    </item>
+    <item
+        jar="/NeXT/MyProjects/NewBo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="983e2f375504bc04def18e709c35192afe92e65f">
+        <dex dex="/NeXT/MyProjects/NewBo/app/build/intermediates/pre-dexed/debug/classes-88634ba1f2e66d58ad98bccefeb6ae97df6e544c.jar" />
+    </item>
+    <item
+        jar="/NeXT/MyProjects/NewBo/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/21.0.3/classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="00b0b7233e1ec64acebfac40d4983d32d4712426">
-        <dex dex="/Users/NeXT/Projects/NewBo/app/build/intermediates/pre-dexed/debug/classes-73da361842a756019943255476c73a7700fe5414.jar" />
+        <dex dex="/NeXT/MyProjects/NewBo/app/build/intermediates/pre-dexed/debug/classes-ebfd8d559943c0e3c39b64ab73fb1122ed93112b.jar" />
     </item>
     <item
-        jar="/Users/NeXT/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/3.0.0/5871fb60dc68d67da54a663c3fd636a10a532948/jsr305-3.0.0.jar"
+        jar="/Users/gongsh001/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.3.1/ecb6e1f8e4b0e84c4b886c2f14a1500caf309757/gson-2.3.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
+        <dex dex="/NeXT/MyProjects/NewBo/app/build/intermediates/pre-dexed/debug/gson-2.3.1-8f995661dc78f26dc98949497521652e18bb06cd.jar" />
+    </item>
+    <item
+        jar="/Users/gongsh001/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/3.0.0/5871fb60dc68d67da54a663c3fd636a10a532948/jsr305-3.0.0.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="5871fb60dc68d67da54a663c3fd636a10a532948">
-        <dex dex="/Users/NeXT/Projects/NewBo/app/build/intermediates/pre-dexed/debug/jsr305-3.0.0-1e12389e20eb342d99c12a36532d82cf0ce79143.jar" />
+        <dex dex="/NeXT/MyProjects/NewBo/app/build/intermediates/pre-dexed/debug/jsr305-3.0.0-16a6f68e48bb3ad9504e8d50d6d5d2f8eadbaa8a.jar" />
+    </item>
+    <item
+        jar="/NeXT/MyProjects/NewBo/app/build/intermediates/exploded-aar/com.facebook.fresco/fbcore/0.1.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="fc2b0f606d055d1bb0ac59889be210db89278363">
+        <dex dex="/NeXT/MyProjects/NewBo/app/build/intermediates/pre-dexed/debug/classes-c6316ada3a9836cf750c1e39018105141afa0dc3.jar" />
+    </item>
+    <item
+        jar="/NeXT/MyProjects/NewBo/app/build/intermediates/exploded-aar/com.github.navasmdc/MaterialDesign/1.4/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="87405405e403de68f4057757b8a2e8de02bd65d0">
+        <dex dex="/NeXT/MyProjects/NewBo/app/build/intermediates/pre-dexed/debug/classes-5fa3de9c1a2becc5682182aae0c661a84219f0d6.jar" />
+    </item>
+    <item
+        jar="/Users/gongsh001/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.1.4/129874135e6081269ace2312092031558865de12/bolts-android-1.1.4.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="129874135e6081269ace2312092031558865de12">
+        <dex dex="/NeXT/MyProjects/NewBo/app/build/intermediates/pre-dexed/debug/bolts-android-1.1.4-e5aa8ab897a385a740ddfb56e1b21b4122de0314.jar" />
     </item>
 
 </items>

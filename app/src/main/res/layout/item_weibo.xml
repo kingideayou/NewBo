@@ -70,30 +70,39 @@
         android:visibility="gone">
 
         <com.facebook.drawee.view.SimpleDraweeView
+            fresco:placeholderImage="@color/selector_gray"
             style="@style/listViewMultiImageView"/>
 
         <com.facebook.drawee.view.SimpleDraweeView
+            fresco:placeholderImage="@color/selector_gray"
             style="@style/listViewMultiImageView"/>
 
         <com.facebook.drawee.view.SimpleDraweeView
+            fresco:placeholderImage="@color/selector_gray"
             style="@style/listViewMultiImageView"/>
 
         <com.facebook.drawee.view.SimpleDraweeView
+            fresco:placeholderImage="@color/selector_gray"
             style="@style/listViewMultiImageView"/>
 
         <com.facebook.drawee.view.SimpleDraweeView
+            fresco:placeholderImage="@color/selector_gray"
             style="@style/listViewMultiImageView"/>
 
         <com.facebook.drawee.view.SimpleDraweeView
+            fresco:placeholderImage="@color/selector_gray"
             style="@style/listViewMultiImageView"/>
 
         <com.facebook.drawee.view.SimpleDraweeView
+            fresco:placeholderImage="@color/selector_gray"
             style="@style/listViewMultiImageView"/>
 
         <com.facebook.drawee.view.SimpleDraweeView
+            fresco:placeholderImage="@color/selector_gray"
             style="@style/listViewMultiImageView"/>
 
         <com.facebook.drawee.view.SimpleDraweeView
+            fresco:placeholderImage="@color/selector_gray"
             style="@style/listViewMultiImageView"/>
 
         <!--
