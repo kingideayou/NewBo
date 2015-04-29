@@ -15,6 +15,7 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.GridLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextSwitcher;
 import android.widget.TextView;
 
@@ -69,6 +70,7 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
         FeedViewHolder viewHolder = new FeedViewHolder(view);
 
         viewHolder.tvContent.setMovementMethod(HackyMovementMethod.getInstance());
+        viewHolder.tvRepostComment.setMovementMethod(HackyMovementMethod.getInstance());
 
         viewHolder.cardView.setOnClickListener(this);
 //        viewHolder.tvContent.setOnClickListener(this);
@@ -134,15 +136,15 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
         feedViewHolder.tvContent.setText(SpannableStringUtils.getSpan(mContext, messageModel));
         feedViewHolder.ivAvatar.setImageURI(Uri.parse(messageModel.user.avatar_large));
 
-        if (getItemCount() == TYPE_REPOST) {
+        if (getItemViewType(position) == TYPE_REPOST) {
             //TODO
-            feedViewHolder.verticalLine.setVisibility(View.VISIBLE);
+            feedViewHolder.rlMessage.setBackgroundColor(mContext.getResources().getColor(R.color.selector_gray));
             feedViewHolder.tvRepostComment.setVisibility(View.VISIBLE);
             feedViewHolder.tvRepostComment.setText(SpannableStringUtils.getOrigSpan(
                     mContext, messageModel.retweeted_status));
             canShowMultiImage(feedViewHolder, messageModel.retweeted_status);
         } else {
-            feedViewHolder.verticalLine.setVisibility(View.GONE);
+            feedViewHolder.rlMessage.setBackgroundColor(mContext.getResources().getColor(R.color.white));
             feedViewHolder.tvRepostComment.setVisibility(View.GONE);
             canShowMultiImage(feedViewHolder, messageModel);
         }
@@ -164,9 +166,9 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
 
         for (int i = 0; i < urls.size(); i++) {
             SimpleDraweeView pic = (SimpleDraweeView) gridLayout.getChildAt(i);
-            pic.setImageURI(Uri.parse(urls.get(i).getLarge()));
+//            pic.setImageURI(Uri.parse(urls.get(i).getLarge()));
             //TODO 判断设置显示高清图还是普通图
-//            pic.setImageURI(Uri.parse(urls.get(i).getThumbnail()));
+            pic.setImageURI(Uri.parse(urls.get(i).getThumbnail()));
         }
 
         if (urls.size() <= 9) {
@@ -359,8 +361,8 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
         HackyTextView tvContent;
         @InjectView(R.id.tv_repost_content)
         HackyTextView tvRepostComment;
-        @InjectView(R.id.vertical_line)
-        View verticalLine;
+        @InjectView(R.id.rl_message)
+        RelativeLayout rlMessage;
 
         public FeedViewHolder(View view) {
             super(view);
