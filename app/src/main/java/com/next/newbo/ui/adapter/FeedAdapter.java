@@ -154,7 +154,14 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
     private void canShowMultiImage(FeedViewHolder feedViewHolder, MessageModel messageModel) {
         if(messageModel.hasMultiplePictures()) {
             buildMultiPic(messageModel, feedViewHolder.gridMain);
+            feedViewHolder.ivImage.setVisibility(View.GONE);
         } else {
+            if (messageModel.pic_urls.size() == 1) {
+                feedViewHolder.ivImage.setVisibility(View.VISIBLE);
+                feedViewHolder.ivImage.setImageURI(Uri.parse(messageModel.pic_urls.get(0).getThumbnail()));
+            } else {
+                feedViewHolder.ivImage.setVisibility(View.GONE);
+            }
             feedViewHolder.gridMain.setVisibility(View.GONE);
         }
     }
@@ -347,6 +354,8 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
 //        HackyTextView tvContent;
         @InjectView(R.id.grid_main)
         GridLayout gridMain;
+        @InjectView(R.id.iv_image)
+        SimpleDraweeView ivImage;
         @InjectView(R.id.btn_comment)
         ImageButton btnComment;
         @InjectView(R.id.btn_transpond)

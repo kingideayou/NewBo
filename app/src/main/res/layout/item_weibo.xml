@@ -79,6 +79,16 @@
             tools:text="没有一点点防备，也没有一丝顾虑，你就这样出现，在我的世界里..."
             tools:ignore="RtlHardcoded" />
 
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/iv_image"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_marginTop="5dp"
+            fresco:actualImageScaleType="fitCenter"
+            android:layout_below="@+id/tv_repost_content"
+            android:maxHeight="160dp"
+            android:maxWidth="160dp"/>
+
         <GridLayout
             android:id="@+id/grid_main"
             android:layout_width="match_parent"
